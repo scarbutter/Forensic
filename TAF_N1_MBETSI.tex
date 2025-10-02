@@ -1,0 +1,293 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage{hyperref}
+\geometry{margin=2cm}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{ulem} % pour souligner plus joli
+\usepackage{tcolorbox} % pour encadrer joliment
+\geometry{margin=2cm}
+
+
+
+% Pour lignes horizontales doubles
+\newcommand{\HRule}{\rule{\linewidth}{1pt}}
+\newcommand{\DoubleHRule}{\rule{\linewidth}{1.5pt}\\[-0.3em]\rule{\linewidth}{0.8pt}}
+
+\title{Exercices pages 13 à 16}
+\author{}
+\date{}
+
+\begin{document}
+	\thispagestyle{empty} % pas de numérotation de page
+	
+	% --- Partie haute avec encadrement ---
+	\begin{tcolorbox}[
+		colback=blue!5,
+		colframe=blue!50,
+		boxrule=0.8pt,
+		arc=4mm,
+		left=4mm, right=4mm, top=2mm, bottom=2mm
+		]
+		
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} m{0.35\textwidth} m{0.25\textwidth} m{0.35\textwidth} }
+			
+			% Bloc gauche
+			\centering
+			\textbf{REPUBLIQUE DU CAMEROUN}\\
+			Paix -- Travail -- Patrie\\
+			\HRule \\[0.3em]
+			\textbf{UNIVERSITE DE YAOUNDE I}\\
+			\HRule \\[0.3em]
+			\textbf{ECOLE NATIONALE SUPERIEURE\\POLYTECHNIQUE DE YAOUNDE}\\
+			\HRule \\[0.3em]
+			\textbf{DEPARTEMENT DE GENIE INFORMATIQUE}
+			
+			&
+			% Logo au milieu
+			\centering
+			\includegraphics[width=3.5cm]{logo.png}
+			
+			&
+			% Bloc droit
+			\centering
+			\textbf{REPUBLIC OF CAMEROON}\\
+			Peace -- Work -- Fatherland\\
+			\HRule \\[0.3em]
+			\textbf{UNIVERSITY OF YAOUNDE I}\\
+			\HRule \\[0.3em]
+			\textbf{NATIONAL ADVANCED SCHOOL\\OF ENGINEERING OF YAOUNDE}\\
+			\HRule \\[0.3em]
+			\textbf{DEPARTMENT OF COMPUTER SCIENCE}
+			
+		\end{tabular*}
+	\end{tcolorbox}
+	
+	\vspace{1.2cm}
+	
+	% --- Titre de l'exposé ---
+	\begin{center}
+		\DoubleHRule \\[1em]
+		{\huge \bfseries Exercices du cours : pages 13 - 16 }\\[1em]
+		\DoubleHRule
+	\end{center}
+	
+	\vspace{2cm}
+	
+	% --- Participants et superviseur ---
+	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} m{0.45\textwidth} m{0.45\textwidth} }
+		\raggedright
+		\uline{\textbf{Participant}} \\[1em]
+		\textbf{Matricule :} 22P035 \\[0.8em]
+		\textbf{Spécialité :} Cybersécurité et Investigation Numérique \\[0.8em]
+		\textbf{Noms :} MBETSI DJOFANG AIME LINDSEY \\[0.8em]
+		\textbf{Niveau :} 4
+		&
+		\raggedright
+		\uline{\textbf{Superviseur}} \\[1em]
+		M.\hspace{0.5cm} MINKA MI NGUIDJOI \\ 
+		\hspace{1.1cm} Thierry Emmanuel
+	\end{tabular*}
+	
+	\vfill
+	
+	% --- Pied de page ---
+	\begin{center}
+		\Large \textbf{Année Scolaire : 2025--2026}
+	\end{center}
+	\newpage
+	\maketitle
+	
+	\section*{Exercice 1 — Dissertation (paradoxe de la transparence)}
+	
+	Le paradoxe de la transparence décrit par Byung-Chul Han dit que, dans nos sociétés numériques, nous voulons tout savoir (transparence) mais en même temps nous voulons garder notre intimité. Cette situation crée une tension : plus on donne d’informations publiques, plus la vie privée s’amenuise ; mais si on protège trop la vie privée, la société peut perdre des outils de contrôle utiles (par exemple pour détecter la corruption).
+	
+	Appliqué à une enquête numérique, ce paradoxe se traduit ainsi : un État ou un enquêteur peut réclamer l’accès aux données (logs, messages, géolocalisation) pour prouver un crime et protéger les citoyens. Mais ouvrir l’accès de façon large menace la vie privée et peut être détourné (surveillance massive, profilage). L’enquête trouve la vérité mais expose fortement les personnes innocentes.
+	
+	Cas concret : imaginez une fuite de fonds publics. Pour enquêter, l’administration demande les historiques de transactions et les conversations professionnelles. La transparence permet d’identifier des responsables. Mais si ces données sont rendues publiques ou utilisées sans garde-fous, elles révèlent aussi des informations sensibles (santé, opinions politiques) sur des tiers qui n’ont rien à voir. Voilà le paradoxe : la même transparence qui sert la justice met en péril l’intimité.
+	
+	Solution pratique inspirée de l’éthique kantienne (langage simple) : Kant demande à agir selon des principes universels — traiter les personnes comme des fins, jamais seulement comme des moyens. Appliqué ici :
+	
+	\begin{enumerate}
+		\item \textbf{Principe de finalité restreinte} : l’accès aux données est permis \textbf{seulement} pour une finalité définie (ex. enquête X), pas pour n’importe quel usage.
+		\item \textbf{Principe d’universalité procédural} : il faudrait des procédures identiques et publiques (qui peut demander, selon quel seuil de preuve, pour combien de temps). Ces règles seraient applicables à tous et connues de tous.
+		\item \textbf{Principe du respect de la dignité} : chaque accès doit minimiser l’exposition des données non pertinentes (redaction, anonymisation) ; les données sensibles doivent rester protégées.
+	\end{enumerate}
+	
+	Mise en œuvre concrète : mise en place d’un filtre légal (autorisation judiciaire), de techniques techniques (anonymisation, ZK-proofs pour prouver sans révéler les données complètes), et d’un contrôle externe (audit indépendant). Ainsi on concilie l’obligation morale d’obtenir la vérité et le respect de la personne : la transparence nécessaire à l’enquête devient circonscrite par des principes universels (comme Kant le demanderait), ce qui réduit le risque d’abus.
+	
+	En résumé : la transparence aide la justice, mais elle doit être encadrée par des règles universelles et des techniques qui protègent l’intimité. C’est la voie kantienne adaptée au numérique : agir selon des règles qui respectent la dignité humaine, même dans la recherche de la vérité.
+	
+	\section*{Exercice 2 — Transformation ontologique (Heidegger → numérique) — langage simple}
+	
+	\textbf{Comparer Heidegger / adaptation numérique (points clés simples)}  
+	\begin{itemize}
+		\item Heidegger : l’homme est « être-au-monde » — l’existence se mesure par nos actions et notre présence.
+		\item Numérique : aujourd’hui, l’identité inclut aussi un double numérique (profils, historiques, traces). L’être n’est plus seulement physique, il est aussi « être-par-ses-traces ».
+	\end{itemize}
+	
+	\textbf{Étude d’un profil social comme « être-par-la-trace » (exemple simple)}  
+	\begin{itemize}
+		\item Profil Facebook/Twitter = collection de posts, likes, photos, commentaires. Ces traces montrent habitudes, opinions, relations. Même si la personne n’est pas présente physiquement, son profil « existe » et influence la façon dont d’autres la perçoivent. On peut dire que l’individu « est » en partie par ses traces.
+	\end{itemize}
+	
+	\textbf{Impact sur la preuve légale (langage simple)}  
+	\begin{itemize}
+		\item Avantage : ces traces peuvent prouver des faits (horodatage, localisation).
+		\item Risque : elles peuvent être manipulées (deepfakes) ou sorties de leur contexte. L’interprétation devient critique : la preuve numérique est persuasive mais nécessite une méthode rigoureuse (chaîne de custody, corroboration, métadonnées).
+	\end{itemize}
+	
+	\section*{Exercice 3 — Calcul d’entropie (script Python simple + seuils)}
+	
+	Idée simple : l’entropie mesure l’imprévisibilité des octets. Un texte clair a une entropie faible ; un fichier chiffré a une entropie proche de 8 bits/octet.
+	
+	\textbf{Formule (rappel simple)}  
+	\[
+	H = -\sum_{i=0}^{255} p(i) \log_2 p(i)
+	\]
+	
+	\textbf{Script Python minimal (exemple)}  
+	\begin{verbatim}
+		# calc_entropy.py
+		import math
+		from collections import Counter
+		
+		def entropy_bytes(path):
+		with open(path,'rb') as f:
+		data = f.read()
+		if not data:
+		return 0.0
+		counts = Counter(data)
+		n = len(data)
+		H = 0.0
+		for c in counts.values():
+		p = c / n
+		H -= p * math.log2(p)
+		return H  # bits per byte
+		
+		# Usage:
+		# print(entropy_bytes('document.txt'))
+		# print(entropy_bytes('image.jpg'))
+		# print(entropy_bytes('cipher.aes'))
+	\end{verbatim}
+	
+	\textbf{Interprétation simple et seuil proposé}  
+	\begin{itemize}
+		\item Texte naturel : $\approx$ 1.0–4.0 bits/octet.
+		\item JPEG : $\approx$ 7.0–7.5 bits/octet.
+		\item AES chiffré : $\approx$ 7.9–8.0 bits/octet.
+	\end{itemize}
+	
+	Seuil pratique proposé :  
+	\begin{itemize}
+		\item Si $H \geq 7.6$ bits/octet → probablement chiffré ou compressé.
+	\end{itemize}
+	
+	\section*{Exercice 4 — Théorie des graphes appliquée aux communications téléphoniques}
+	
+	Exemple simple avec 5 personnes : A, B, C, D, E.
+	
+	\begin{itemize}
+		\item Arêtes : AB, AC, BC, BD, CE, DE, BE.
+		\item Degré : A=2, B=4, C=3, D=2, E=3.
+		\item Centralité : $CD(A)=0.5$, $CD(B)=1$, $CD(C)=0.75$, $CD(D)=0.5$, $CD(E)=0.75$.
+	\end{itemize}
+	
+	Betweenness : B est critique car il relie souvent A est équivalent à D, A est équivalent à E.  
+	
+	Conclusion : B est le nœud le plus central, à surveiller en priorité.
+	
+	\section*{Exercice 5 — Modélisation de l’effet papillon}
+	
+	Méthode :  
+	\begin{enumerate}
+		\item Construire timeline T0 avec 1000 événements.
+		\item Copier en T1 et modifier un timestamp de ±30s.
+		\item Recalculer dépendances.
+		\item Mesurer divergence $\delta(t)$.
+		\item Estimer exposant de Lyapunov : $\delta(t) \approx \delta(0)e^{\lambda t}$.
+	\end{enumerate}
+	
+	Exemple :  
+	$\delta(0)=1$, après 3600s $\delta(3600)=100$.  
+	\[
+	\lambda \approx \frac{1}{3600}\ln(100) \approx 0.00128 \ \text{par seconde}.
+	\]
+	
+	\section*{Exercice 6 — Chat de Schrödinger adapté}
+	
+	Idée : un fichier peut être « présent/effacé » tant qu’il n’est pas figé par une image forensique.  
+	Donc l’analyse elle-même modifie parfois l’état.  
+	
+	Protocole pour limiter :  
+	\begin{itemize}
+		\item Isoler la machine.
+		\item Utiliser write-blocker.
+		\item Faire image bit-à-bit.
+		\item Calculer hash.
+		\item Travailler sur copies.
+	\end{itemize}
+	
+	\section*{Exercice 7 — Calculs sur la sphère de Bloch}
+	
+	État :  
+	\[
+	|\psi\rangle = \cos\frac{\pi}{6}|0\rangle + e^{i\pi/4}\sin\frac{\pi}{6}|1\rangle
+	\]
+	
+	Calculs :  
+	\begin{itemize}
+		\item $\cos(\pi/6) = \sqrt{3}/2 \approx 0.866$.
+		\item $\sin(\pi/6) = 1/2 = 0.5$.
+		\item $P(0) = 0.75$, $P(1) = 0.25$.
+	\end{itemize}
+	
+	\section*{Exercice 8 — Théorème de non-clonage}
+	
+	Principe : on ne peut pas copier un état quantique inconnu parfaitement (contradiction avec linéarité).  
+	
+	Conséquence : en forensique quantique, il faut prouver l’existence d’un état par des preuves statistiques, pas en le copiant.  
+	
+	\section*{Exercice 9 — Formalisation mathématique du paradoxe}
+	
+	Trois systèmes :  
+	
+	\begin{itemize}
+		\item Système 1 : A=0.95, C=0.10 → $AC=0.095$, $\delta=0.905$.
+		\item Système 2 : A=0.60, C=0.95 → $AC=0.57$, $\delta=0.43$.
+		\item Système 3 : A=0.75, C=0.60 → $AC=0.45$, $\delta=0.55$.
+	\end{itemize}
+	
+	Estimation $\hbar_{num}$ :  
+	Exemple : $\Delta A=0.02$, $\Delta C=0.03$, donc  
+	\[
+	\hbar_{num} \approx 2 \cdot \Delta A \cdot \Delta C = 0.0012.
+	\]
+	
+	\section*{Exercice 10 — Proof-of-concept ZK-NR}
+	
+	Idée : prouver qu’on connaît un document sans le révéler, et signer l’engagement.  
+	
+	\begin{verbatim}
+		import hashlib, time
+		
+		def sha(x): return hashlib.sha256(x).hexdigest()
+		
+		# Prover side
+		D = b"document bytes"
+		h = sha(D)
+		r = b"random nonce"
+		commit = sha((h + r))
+		signature = sha((commit + b"private_key_sim"))
+		
+		# Verifier side
+		ok = (signature == sha((commit + b"private_key_sim")))
+	\end{verbatim}
+	
+	Overhead : calcul du hash + signature.  
+	
+\end{document}

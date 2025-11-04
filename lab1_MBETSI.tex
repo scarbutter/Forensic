@@ -1,0 +1,224 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\pagestyle{fancy}
+\pagestyle{fancy}
+\fancyhf{}  % vide l'en-tête et le pied
+
+% --- Ligne d'en-tête et de pied ---
+\renewcommand{\headrulewidth}{0pt}
+
+
+% --- En-tête ---
+\renewcommand{\sectionmark}[1]{\markboth{\thesection.\ #1}{}}
+\fancyhead[R]{\makebox[\textwidth][r]{\textbf{Introduction aux Techniques de l'Investigation Numérique}}}
+
+% --- Pied de page ---
+\fancyfoot[L]{\textbf{Cybersécurité et Investigation Numérique -- IV}} % petit espace à gauche
+\fancyfoot[C]{\hspace{11.5cm}\textbf{\thepage}}
+\setlength{\headsep}{1.2cm}
+% --- Ajuster l'espacement du pied de page pour éviter chevauchement ---
+\setlength{\footskip}{1.5cm} 
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{ulem} % pour souligner plus joli
+\usepackage{tcolorbox} % pour encadrer joliment
+\geometry{margin=2cm}
+\hypersetup{
+	colorlinks = true,
+	linkcolor = black
+}
+
+
+% Pour lignes horizontales doubles
+\newcommand{\HRule}{\rule{\linewidth}{1pt}}
+\newcommand{\DoubleHRule}{\rule{\linewidth}{1.5pt}\\[-0.3em]\rule{\linewidth}{0.8pt}}
+
+\begin{document}
+	\thispagestyle{empty} % pas de numérotation de page
+	
+	% --- Partie haute avec encadrement ---
+	\begin{tcolorbox}[
+		colback=blue!5,
+		colframe=blue!50,
+		boxrule=0.8pt,
+		arc=4mm,
+		left=4mm, right=4mm, top=2mm, bottom=2mm
+		]
+		
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} m{0.35\textwidth} m{0.25\textwidth} m{0.35\textwidth} }
+			
+			% Bloc gauche
+			\centering
+			\textbf{REPUBLIQUE DU CAMEROUN}\\
+			Paix -- Travail -- Patrie\\
+			\HRule \\[0.3em]
+			\textbf{UNIVERSITE DE YAOUNDE I}\\
+			\HRule \\[0.3em]
+			\textbf{ECOLE NATIONALE SUPERIEURE\\POLYTECHNIQUE DE YAOUNDE}\\
+			\HRule \\[0.3em]
+			\textbf{DEPARTEMENT DE GENIE INFORMATIQUE}
+			
+			&
+			% Logo au milieu
+			\centering
+			\includegraphics[width=3.5cm]{logo.png}
+			
+			&
+			% Bloc droit
+			\centering
+			\textbf{REPUBLIC OF CAMEROON}\\
+			Peace -- Work -- Fatherland\\
+			\HRule \\[0.3em]
+			\textbf{UNIVERSITY OF YAOUNDE I}\\
+			\HRule \\[0.3em]
+			\textbf{NATIONAL ADVANCED SCHOOL\\OF ENGINEERING OF YAOUNDE}\\
+			\HRule \\[0.3em]
+			\textbf{DEPARTMENT OF COMPUTER SCIENCE}
+			
+		\end{tabular*}
+	\end{tcolorbox}
+	
+	\vspace{1.2cm}
+	
+	% --- Titre de l'exposé ---
+	\begin{center}
+		\DoubleHRule \\[1em]
+		{\huge \bfseries LAB SEMESTRE I }\\[1em]
+		\DoubleHRule
+	\end{center}
+	
+	\vspace{2cm}
+	
+	% --- Participants et superviseur ---
+	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} m{0.45\textwidth} m{0.45\textwidth} }
+		\raggedright
+		\uline{\textbf{Participant}} \\[1em]
+		\textbf{Matricule :} 22P035 \\[0.8em]
+		\textbf{Spécialité :} Cybersécurité et Investigation Numérique \\[0.8em]
+		\textbf{Noms :} MBETSI DJOFANG AIME LINDSEY \\[0.8em]
+		\textbf{Niveau :} 4
+		&
+		\raggedright
+		\uline{\textbf{Superviseur}} \\[1em]
+		M.\hspace{0.5cm} MINKA MI NGUIDJOI \\ 
+		\hspace{1.1cm} Thierry Emmanuel
+	\end{tabular*}
+	
+	\vfill
+	
+	% --- Pied de page ---
+	\begin{center}
+		\Large \textbf{Année Scolaire : 2025--2026}
+	\end{center}
+	
+	\newpage
+	\tableofcontents
+	\newpage
+	\setcounter{page}{3}
+	
+	\section*{\Huge Introduction}
+	\vspace{0.5cm}
+	\addcontentsline{toc}{section}{Introduction}
+	
+	L'univers numérique est au cœur des enjeux actuels en matière de sécurité informatique. Ce laboratoire porte sur l'introduction aux techniques d'investigation numérique, visant à comprendre et mettre en œuvre les configurations réseau essentielles pour sécuriser et analyser les architectures informatiques. Le travail réalisé inclut la construction d'une architecture réseau en DMZ composée d'un serveur web Ubuntu et d'un parefeu, ainsi que la configuration de routeurs, machines Windows et Linux, en vue de maîtriser les outils et les concepts clés en cybersécurité et investigation numérique.
+	
+	
+	\newpage
+	
+	\section{ Construction de l’architecture du lab}
+	
+	\vspace{0.5cm}
+	
+	-	Une DMZ : constiuée d’un serveur web ubuntu et d’un parefeu (routeur+ACL)\\
+	-	Un routeur \\
+	-	2 ordinateurs dans des réseaux ayant l’accès aux services web du serveur\\
+	-	Un ordinateur dans un réseau n’ayant pas l’accès aux services web du serveur\\
+	-	Un switch\\
+	
+	\includegraphics[width=15cm]{architecture.png}
+	
+	
+	\section{ Configuration du routeur}
+	\vspace{0.5cm}
+	
+	Adressage des interfaces du routeur conformément aux adresses données\\
+	\includegraphics[width=15cm]{routeur_ipv.png} \\
+	
+	Création des routes\\
+	\includegraphics[width=15cm]{routeur_route.png}
+	
+	\section{ Configuration du parefeu}
+	\vspace{0.5cm}
+	
+	Adressage des interfaces du parefeu conformément aux adresses données\\
+	\includegraphics[width=15cm]{parefeu_ipv4.png} \\
+	
+	Création des routes\\
+	\includegraphics[width=15cm]{parefeu_route.png} \\
+	
+	Création des listes de contrôle d’accès\\
+	\includegraphics[width=15cm]{parefeu_acl.png} \\
+	
+	Attribution des ACL aux interfaces concernées\\
+	\includegraphics[width=15cm]{parefeu_int_acl.png}
+		
+	\section{ Configuration du serveur ubuntu}
+	\vspace{0.5cm}
+	
+	Adressage de l’interface du serveur conformément à l’adresse donnée\\
+	\includegraphics[width=15cm]{ubuntu_ipv4.png}\\
+	\includegraphics[width=15cm]{ubuntu_gateway_1.png}\\
+	\includegraphics[width=15cm]{ubuntu_gateway_2.png} \\
+	
+	Exécution du serveur web \\
+	\includegraphics[width=15cm]{ubuntu_app.png}\\
+	\includegraphics[width=15cm]{ubuntu_app_working.png}
+	
+	\section{Configuration de la 2é machine windows }
+	\vspace{0.5cm}
+	
+	Adressage de l’interface du serveur conformément à l’adresse donnée\\
+	\includegraphics[width=15cm]{windows_ipv4.png} \\
+	
+	Connexion au site web en tapant : http://192.168.5.2:8000/ \\
+	\includegraphics[width=15cm]{windows_app.png}\\
+	\includegraphics[width=15cm]{windows_app_work.png}
+	
+	\section{ Configuration de la machine Linux}
+	\vspace{0.5cm}
+	
+	Adressage de l’interface de la machine Kali conformément à l’adresse donnée\\
+	\includegraphics[width=15cm]{kali_ipv4.png}\\ \\
+	\includegraphics[width=15cm]{kali_ip.png} \\ 
+	
+	Connexion au site web en tapant : http://192.168.5.2:8000/ \\
+	\includegraphics[width=15cm]{kali_app.png}
+	
+	\section{ Configuration de la 1ère machine windows}
+	\vspace{0.5cm}
+	
+	Adressage de l’interface de la machine Kali conformément à l’adresse donnée\\
+	\includegraphics[width=15cm]{windows1_ipv4.png} \\
+	
+	NB : Le réseau n’a pas accès au site web car il a été bloqué par les ACL configurés dans le roteur ayant le rôle de parefeu
+	
+	
+	
+	
+	\newpage
+	
+	\section*{\Huge Conclusion}
+	\vspace{0.5cm}
+	\addcontentsline{toc}{section}{Conclusion}
+	
+	Ce laboratoire a permis de mettre en pratique les principes fondamentaux de l'investigation numérique et de la cybersécurité, notamment à travers la construction et configuration d'une architecture réseau sécurisée. L'approche adoptée, incluant la mise en place de contrôles d'accès et la configuration des différents équipements réseau, est essentielle pour garantir la sécurité des systèmes d'information. Cette expérience contribue à renforcer les compétences techniques indispensables pour identifier, analyser et contrer les menaces dans un environnement numérique sécurisé.
+	
+	
+	
+\end{document}

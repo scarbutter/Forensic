@@ -1,0 +1,667 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\pagestyle{fancy}
+\pagestyle{fancy}
+\fancyhf{}  % vide l'en-tête et le pied
+
+% --- Ligne d'en-tête et de pied ---
+\renewcommand{\headrulewidth}{0pt}
+
+
+% --- En-tête ---
+\renewcommand{\sectionmark}[1]{\markboth{\thesection.\ #1}{}}
+\fancyhead[R]{\makebox[\textwidth][r]{\textbf{Introduction aux Techniques de l'Investigation Numérique}}}
+
+% --- Pied de page ---
+\fancyfoot[L]{\textbf{Cybersécurité et Investigation Numérique -- IV}} % petit espace à gauche
+\fancyfoot[C]{\hspace{11.5cm}\textbf{\thepage}}
+\setlength{\headsep}{1.2cm}
+% --- Ajuster l'espacement du pied de page pour éviter chevauchement ---
+\setlength{\footskip}{1.5cm} 
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{ulem} % pour souligner plus joli
+\usepackage{tcolorbox} % pour encadrer joliment
+\geometry{margin=2cm}
+\hypersetup{
+	colorlinks = true,
+	linkcolor = black
+}
+
+
+% Pour lignes horizontales doubles
+\newcommand{\HRule}{\rule{\linewidth}{1pt}}
+\newcommand{\DoubleHRule}{\rule{\linewidth}{1.5pt}\\[-0.3em]\rule{\linewidth}{0.8pt}}
+
+\begin{document}
+	\thispagestyle{empty} % pas de numérotation de page
+	
+	% --- Partie haute avec encadrement ---
+	\begin{tcolorbox}[
+		colback=blue!5,
+		colframe=blue!50,
+		boxrule=0.8pt,
+		arc=4mm,
+		left=4mm, right=4mm, top=2mm, bottom=2mm
+		]
+		
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} m{0.35\textwidth} m{0.25\textwidth} m{0.35\textwidth} }
+			
+			% Bloc gauche
+			\centering
+			\textbf{REPUBLIQUE DU CAMEROUN}\\
+			Paix -- Travail -- Patrie\\
+			\HRule \\[0.3em]
+			\textbf{UNIVERSITE DE YAOUNDE I}\\
+			\HRule \\[0.3em]
+			\textbf{ECOLE NATIONALE SUPERIEURE\\POLYTECHNIQUE DE YAOUNDE}\\
+			\HRule \\[0.3em]
+			\textbf{DEPARTEMENT DE GENIE INFORMATIQUE}
+			
+			&
+			% Logo au milieu
+			\centering
+			\includegraphics[width=3.5cm]{logo.png}
+			
+			&
+			% Bloc droit
+			\centering
+			\textbf{REPUBLIC OF CAMEROON}\\
+			Peace -- Work -- Fatherland\\
+			\HRule \\[0.3em]
+			\textbf{UNIVERSITY OF YAOUNDE I}\\
+			\HRule \\[0.3em]
+			\textbf{NATIONAL ADVANCED SCHOOL\\OF ENGINEERING OF YAOUNDE}\\
+			\HRule \\[0.3em]
+			\textbf{DEPARTMENT OF COMPUTER SCIENCE}
+			
+		\end{tabular*}
+	\end{tcolorbox}
+	
+	\vspace{1.2cm}
+	
+	% --- Titre de l'exposé ---
+	\begin{center}
+		\DoubleHRule \\[1em]
+		{\huge \bfseries Exercice d'investigation numérique }\\[1em]
+		\DoubleHRule
+	\end{center}
+	
+	\vspace{2cm}
+	
+	% --- Participants et superviseur ---
+	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} m{0.45\textwidth} m{0.45\textwidth} }
+		\raggedright
+		\uline{\textbf{Participant}} \\[1em]
+		\textbf{Matricule :} 22P035 \\[0.8em]
+		\textbf{Spécialité :} Cybersécurité et Investigation Numérique \\[0.8em]
+		\textbf{Noms :} MBETSI DJOFANG AIME LINDSEY \\[0.8em]
+		\textbf{Niveau :} 4
+		&
+		\raggedright
+		\uline{\textbf{Superviseur}} \\[1em]
+		M.\hspace{0.5cm} MINKA MI NGUIDJOI \\ 
+		\hspace{1.1cm} Thierry Emmanuel
+	\end{tabular*}
+	
+	\vfill
+	
+	% --- Pied de page ---
+	\begin{center}
+		\Large \textbf{Année Scolaire : 2025--2026}
+	\end{center}
+	
+	\newpage
+	\tableofcontents
+	
+	
+	
+	\newpage
+	\setcounter{page}{3}
+	
+	\section*{Rapport d'Investigation Personnelle}
+	\textbf{Sur :} NANTIA ZAGUE AXEL FRISKYL
+	
+	\vspace{0.5cm}
+	
+	\noindent
+	\textbf{Date de l'investigation :} 17 octobre 2025 \\
+	\textbf{Demandeur :} Investigation personnelle \\
+	\textbf{Investigateur :} MBETSI DJOFANG AIME LINDSEY \\
+	\textbf{Durée de l'investigation :} 2 jours
+	
+	\vspace{1cm}
+	
+	\newpage
+	\section*{Introduction}
+	\addcontentsline{toc}{section}{Introduction}
+	
+	\subsection*{Contexte et Objectif de l'Investigation}
+	
+	Le présent rapport documente une investigation menée en vue de rassembler un maximum d'informations sur la personne identifiée sous les noms de NANTIA ZAGUE AXEL FRISKYL. Cette investigation s'inscrit dans une démarche systématique de collecte de données biographiques, sociales et professionnelles utilisant principalement les ressources disponibles sur internet, complétées par des recherches hors ligne.
+	
+	\subsection*{Méthodologie Employée}
+	
+	L'investigation a été conduite selon une approche méthodique comprenant :
+	
+	\begin{itemize}
+		\item \textbf{Recherche en ligne :} Consultation des principaux réseaux sociaux (TikTok, Facebook, LinkedIn), moteurs de recherche et annuaires en ligne
+		\item \textbf{Recherche hors ligne :} Vérifications de proximité et recoupement des informations obtenues
+		\item \textbf{Triangulation des données :} Croisement des informations provenant de différentes sources pour assurer la cohérence et la fiabilité
+		\item \textbf{Documentation systématique :} Enregistrement chronologique et précis de tous les éléments découverts
+	\end{itemize}
+	
+	\subsection*{Structure du Rapport}
+	
+	Ce rapport est organisé en trois sections principales : (1) les informations confirmées et structurées, (2) l'analyse détaillée par source de collecte de données, et (3) une synthèse des lacunes informationnelles et des recommandations pour des investigations supplémentaires.
+	
+	\vspace{1cm}
+	
+	\newpage
+	
+	\section{Partie 1 : Données Personnelles et Biographiques Confirmées}
+	
+	\subsection*{1.1 Identité et Informations de Base}
+	
+	\textbf{Identité officielle :}
+	\begin{itemize}
+		\item \textbf{Nom complet :} NANTIA ZAGUE AXEL FRISKYL 
+		\item \textbf{Genre :} Masculin (confirmé par les contenus visuels)
+	\end{itemize}
+	
+	\textbf{Informations de contact :}
+	\begin{itemize}
+		\item \textbf{Numéro de téléphone 1 :} +237 659 485 038
+		\item \textbf{Numéro de téléphone 2 :} +237 674 102 598
+	\end{itemize}
+	
+	Les deux numéros sont associés à l'opérateur camerounais (indicatif +237), confirmant la localisation présumée du sujet au Cameroun.
+	
+	\subsection*{1.2 Cursus Académique et Formation}
+	
+	\textbf{Établissement actuel :} École Nationale Supérieure Polytechnique de Yaoundé (ENSPY)
+	\begin{itemize}
+		\item \textbf{Département :} Génie Informatique (GI)
+		\item \textbf{Filière :} Humanité Numérique (HN)
+		\item \textbf{Spécialité :} Cybersécurité et Investigation Numérique (CIN)
+		\item \textbf{Niveau d'études :} Niveau 4 - Cycle Ingénieur
+		\item \textbf{Statut :} Étudiant actuellement inscrit
+	\end{itemize}
+	
+	\textbf{Établissement antérieur confirmé :}
+	\begin{itemize}
+		\item \textbf{Lycée :} Lycée Bilingue d'Etoug-ébé, Yaoundé (mention trouvée sur l'un des profils Facebook datée de 2021)
+	\end{itemize}
+	
+	\subsection*{1.3 Expérience Professionnelle}
+	
+	\textbf{Emploi actuel/Récent (selon profil LinkedIn) :}
+	\begin{itemize}
+		\item \textbf{Entreprise :} Intelligentsia Corporation
+		\item \textbf{Poste :} Enseignant
+		\item \textbf{Domaines d'enseignement :} Mathématiques et Informatique
+		\item \textbf{Durée :} 2 ans et 11 mois (à partir de la date de consultation : depuis environ novembre 2022)
+	\end{itemize}
+	
+	Cette double activité (étudiant-ingénieur et enseignant) est notable et suggère un profil académique fort et une capacité à gérer plusieurs responsabilités simultanément.
+	
+	\subsection*{1.4 Certifications Professionnelles}
+	
+	Le sujet possède plusieurs certifications validant son expertise en sécurité informatique :
+	
+	\begin{enumerate}
+		\item \textbf{Fortinet Certified Associate (FCA)} --- Certification reconnue dans le domaine de la cybersécurité, démontrant une compétence validée en solutions Fortinet
+		\item \textbf{Fortinet Certified Fundamentals (FCF)} --- Certification supplémentaire Fortinet, niveau d'expertise intermédiaire à avancé
+		\item \textbf{Certified Information Security Manager (CISM)} --- Certification en management de la sécurité de l'information, reconnaissance internationale de l'ISC² (International Information Systems Security Certification Consortium), exigeant plusieurs années d'expérience pratique
+	\end{enumerate}
+	
+	Ces certifications positionnent le sujet comme un professionnel sérieux dans le domaine de la cybersécurité.
+	
+	\subsection*{1.5 Localisation Géographique}
+	
+	\textbf{Localisation confirmée :} Yaoundé, Cameroun
+	\begin{itemize}
+		\item Résidence actuelle confirmée par mentions multiples sur Facebook
+		\item Tous les contacts téléphoniques utilisent l'indicatif camerounais
+		\item L'établissement d'études (ENSPY) est localisé à Yaoundé
+	\end{itemize}
+	
+	\textbf{Lieux fréquentés :}
+	\begin{itemize}
+		\item Campus de l'ENSPY (mention de salle B25, salle de classe)
+		\item Zones de sortie/loisir à Yaoundé (confirmé par publication Facebook du 5 octobre 2022)
+	\end{itemize}
+	
+	\vspace{1cm}
+	
+	\section{Partie 2 : Analyse Détaillée par Source de Collecte}
+	
+	\subsection*{2.1 Plateforme TikTok}
+	
+	\textbf{Identifiant :} @nantia\_axel
+	
+	\textbf{Période d'activité observée :} Octobre à décembre 2022 (activité récente non documentée)
+	
+	\textbf{Volume de contenu :} 7 vidéos documentées
+	
+	\textbf{Contenu chronologiquement analysé :}
+	
+	\vspace{0.5cm}
+	
+	\noindent
+	\begin{tabular}{|p{1.5cm}|p{1.8cm}|p{2.5cm}|p{2cm}|}
+		\hline
+		\textbf{Date} & \textbf{Type} & \textbf{Détails} & \textbf{Observations} \\
+		\hline
+		2022-10-05 & Photo & Sortie/loisir & Partage de moments de détente \\
+		\hline
+		2022-10-08 & Partage vidéo & Extrait ancien film nigérian @Amiplifierstv & Intérêt pour le cinéma nigérian \\
+		\hline
+		2022-10-09 & Vidéo & ``Agit cool'' - contenu humoristique & Personnalité ludique \\
+		\hline
+		2022-11-30 & Photos & Environnement scolaire salle B25 & Confirmation de la scolarité à l'ENSPY \\
+		\hline
+		2022-11-30 & Photo couple & Avec une fille - légende ``i miss you so much'' & Indication de relation affective \\
+		\hline
+		2022-12-01 & Vidéo & Danse sur challenge ``Afro The Influence - Lotus Beatz'' & Participation aux tendances sociales \\
+		\hline
+		2022-12-01 & Vidéo & Vœux d'anniversaire à sa tati (tante) & Liens familiaux attestés \\
+		\hline
+	\end{tabular}
+	
+	\vspace{0.5cm}
+	
+	\textbf{Profil généré :}
+	\begin{itemize}
+		\item Utilisateur actif mais modérément productif
+		\item Contenu majoritairement léger et ludique
+		\item Participation aux tendances virales
+		\item Démonstration de liens familiaux
+		\item Intérêt pour la culture populaire
+	\end{itemize}
+	
+	\textbf{Limitations :} Aucune activité documentée après décembre 2022 sur cette plateforme (compte possiblement inactif ou supprimé).
+	
+	\subsection*{2.2 Plateforme Facebook}
+	
+	\textbf{Période d'activité observée :} Août 2020 à août 2022 (selon les publications les plus récentes)
+	
+	\textbf{Observations structurelles :} Présence de \textbf{4 comptes distincts} partageant le même nom ou des variantes
+	
+	\vspace{0.5cm}
+	
+	\noindent
+	\begin{tabular}{|c|c|c|c|p{3.5cm}|}
+		\hline
+		\textbf{\#} & \textbf{Amis} & \textbf{Publications} & \textbf{Période} & \textbf{Informations clés} \\
+		\hline
+		1 & 81 & 0 & Non documentée & Compte sans photo de profil, inactif \\
+		\hline
+		2 & 126 & 8 & 19/12/2021 - 01/08/2022 & Lieu : Yaoundé, photo de profil personnelle \\
+		\hline
+		3 & 62 & 2 & 02/08/2020 & Photo de profil personnelle \\
+		\hline
+		4 & 187 & 6 & 19/05/2021 - 31/07/2021 & Études au Lycée Bilingue d'Etoug-ébé \\
+		\hline
+	\end{tabular}
+	
+	\vspace{0.5cm}
+	
+	\textbf{Analyse :}
+	\begin{itemize}
+		\item La multiplicité des comptes suggère soit une création de plusieurs profils volontaires, soit des doublons (résultat de suspensions/fermetures alternées)
+		\item Le compte le plus actif (Compte 2) confirme la résidence à Yaoundé
+		\item L'activité décline après août 2022
+		\item Réseau social modeste (entre 62 et 187 amis par compte), suggérant un usage plutôt personnel que professionnel
+	\end{itemize}
+	
+	\textbf{Profil généré :}
+	\begin{itemize}
+		\item Utilisateur Facebook occasionnel
+		\item Partage limité de contenu personnel
+		\item Maintenance insuffisante des profils (accumulation de doublons)
+	\end{itemize}
+	
+	\subsection*{2.3 Plateforme LinkedIn}
+	
+	\textbf{Status :} 1 profil confirmé et actif
+	
+	\textbf{Informations académiques :}
+	\begin{itemize}
+		\item École : ENSPY (École Nationale Supérieure Polytechnique de Yaoundé)
+		\item Formation en : Cybersécurité et Investigation Numérique, Niveau 4, Cycle Ingénieur
+	\end{itemize}
+	
+	\textbf{Expérience professionnelle documentée :}
+	\begin{itemize}
+		\item Employeur : Intelligentsia Corporation
+		\item Poste : Enseignant
+		\item Domaines : Mathématiques et Informatique
+		\item Durée : 2 ans et 11 mois (depuis environ novembre 2022)
+	\end{itemize}
+	
+	\textbf{Certifications listées :}
+	\begin{enumerate}
+		\item Fortinet Certified Associate (FCA)
+		\item Fortinet Certified Fundamentals (FCF)
+		\item Certified Information Security Manager (CISM)
+	\end{enumerate}
+	
+	\textbf{Profil LinkedIn généré :}
+	\begin{itemize}
+		\item Sujet décrit comme ``très intelligent''
+		\item Caractérisation : ``cherche toujours à comprendre plus''
+		\item Aptitudes développées grâce à son rôle d'enseignant
+		\item Profil professionnel crédible et structuré
+	\end{itemize}
+	
+	\textbf{Observation importante :} LinkedIn est la seule plateforme où le sujet maintient une présence professionnelle cohérente et actualisée, suggérant une professionnalisation progressive du sujet depuis 2022.
+	
+	\subsection*{2.4 Synthèse Inter-Sources}
+	
+	\textbf{Concordances observées :}
+	\begin{itemize}
+		\item Nom unique NANTIA ZAGUE AXEL (avec variantes orthographiques mineures)
+		\item Localisation unique : Yaoundé, Cameroun
+		\item Cursus cohérent : lycée $\rightarrow$ ENSPY niveau 4
+		\item Compétences en informatique confirmées par trois vecteurs indépendants (éducation, emploi, certifications)
+	\end{itemize}
+	
+	\textbf{Discordances ou incohérences :}
+	\begin{itemize}
+		\item Dates d'activité réseaux sociaux : activité très réduite après août 2022 (réseau social plus actif que professionnel antérieurement)
+		\item Multiplication des comptes Facebook sans explication claire
+	\end{itemize}
+	
+	\vspace{1cm}
+	
+	\section{Partie 3 : Informations Non Trouvées et Analyse des Lacunes}
+	
+	\subsection*{3.1 Données Biographiques Manquantes}
+	
+	Les informations suivantes n'ont pas pu être localisées malgré des recherches approfondies :
+	
+	\textbf{Données familiales :}
+	\begin{itemize}
+		\item \textbf{Nom du père :} NON TROUVÉ
+		\item \textbf{Nom de la mère :} NON TROUVÉ
+		\item Seule exception : mention d'une ``tati'' (tante) au moment de vœux d'anniversaire sur TikTok, permettant de confirmer des liens familiaux sans identifier les proches directs
+	\end{itemize}
+	
+	\textbf{Données biométriques personnelles :}
+	\begin{itemize}
+		\item \textbf{Date de naissance précise :} NON TROUVÉE
+		\item \textbf{Âge actuel :} NON CONFIRMÉ (estimation approximative : 22-26 ans basée sur l'hypothèse d'une entrée en licence vers 19-20 ans et arrivée en niveau 4 vers 22-23 ans)
+		\item \textbf{Lieu de naissance :} NON TROUVÉ (localisation présumée : région de Yaoundé ou Cameroun central, mais non confirmée)
+		\item \textbf{Taille/caractéristiques physiques précises :} NON DOCUMENTÉES
+	\end{itemize}
+	
+	\subsection*{3.2 Données Professionnelles Incomplètes}
+	
+	\textbf{Lacunes professionnelles :}
+	
+	\begin{itemize}
+		\item \textbf{Détails de Intelligentsia Corporation :} Pas d'information accumulée sur cette entreprise, secteur d'activité réel, localisation précise, ou sectoriel
+		\item \textbf{Nature exacte de la certification Fortinet :} Les initiales FCF vs FCE requièrent clarification
+		\item \textbf{Détails des cours dispensés :} Niveaux scolaires, effectifs, contenus précis non documentés
+		\item \textbf{Revenu/statut contractuel :} Non trouvé (CDI, CDD, freelance?)
+	\end{itemize}
+	
+	\subsection*{3.3 Données Relationnelles et Affectives}
+	
+	\textbf{Lacunes sociales :}
+	
+	\begin{itemize}
+		\item \textbf{Identité de la personne mentionnée ``i miss you so much'' :} Cette phrase indique une relation affective, mais l'identité de cette personne n'a pas pu être déterminée
+		\item \textbf{Réseau amical détaillé :} Seul le volume des connections est connu (62-187 amis), pas les identités précises
+		\item \textbf{Statut relationnel actuel :} Célibataire, en couple, marié : indéterminé
+		\item \textbf{Famille nucléaire :} Frères, sœurs, structure familiale complète : NON DOCUMENTÉE
+	\end{itemize}
+	
+	\subsection*{3.4 Présence en Ligne Résiduelle}
+	
+	\textbf{Plateformes non explorées ou non représentées :}
+	
+	\begin{itemize}
+		\item Instagram : Pas de mention trouvée
+		\item Twitter/X : Pas de mention trouvée
+		\item YouTube : Pas de chaîne identifiée
+		\item Autres réseaux sociaux régionaux ou internationaux : Non investigués
+	\end{itemize}
+	
+	\textbf{Absence notable :} Pas de trace sur les annuaires professionnels internationaux (Crunchbase, AngelList, Stack Overflow, ResearchGate, etc.), suggérant une présence numérique délibérément restreinte au domaine académique et social.
+	
+	\subsection*{3.5 Raisons des Lacunes Informationnelles}
+	
+	\textbf{Facteurs contributifs à l'incomplétude de l'investigation :}
+	
+	\begin{enumerate}
+		\item \textbf{Protection volontaire de la vie privée :} Le sujet maintient une séparation claire entre sa présence personnelle (réseaux sociaux décroissants) et professionnelle (LinkedIn uniquement), suggérant une conscience de sa présence numérique.
+		
+		\item \textbf{Données personnelles sensibles :} Les informations identitaires critiques (date de naissance, noms parentaux) sont naturellement protégées au Cameroun par les normes de confidentialité.
+		
+		\item \textbf{Plateformes régionales vs internationales :} La prédominance de Facebook et TikTok (plutôt que LinkedIn) lors des années 2020-2022 suggère une adaptation progressive aux normes professionnelles.
+		
+		\item \textbf{Inactivité ou suppression de comptes :} L'absence d'activité après août 2022 sur les réseaux sociaux personnels suggère soit une désactivation volontaire, soit une migration vers d'autres plateformes non documentées.
+		
+		\item \textbf{Limitations méthodologiques :} L'investigation s'est limitée à des recherches en ligne et en ressources librement accessibles. Une investigation plus approfondie exigerait :
+		\begin{itemize}
+			\item Accès aux registres officiels camerounais (actes de naissance, registres électoraux)
+			\item Vérification auprès de l'ENSPY et d'Intelligentsia Corporation
+			\item Accès aux bases de données téléphoniques commerciales
+			\item Investigation sur site (visite physique des lieux)
+		\end{itemize}
+	\end{enumerate}
+	
+	\vspace{1cm}
+	
+	\section{Partie 4 : Profil Synthétique Généré}
+	
+	\subsection*{4.1 Profil Comportemental et Psychographique}
+	
+	Basée sur l'ensemble des données collectées, une analyse qualitative du sujet émerge :
+	
+	\textbf{Profil académique :} Sujet hautement motivé, ayant progressé significativement dans son cursus (atteinte du niveau 4 - cycle ingénieur en cybersécurité). La possession de certifications CISM et Fortinet avant la fin de la formation sous-entend une autodiscipline et une volonté de validation externe de compétences.
+	
+	\textbf{Profil professionnel :} Le double rôle enseignant-étudiant (sur une durée de 2 ans et 11 mois) indique une capacité à gérer la complexité et la charge de travail. La description LinkedIn le qualifiant de ``très intelligent'' et ``cherchant toujours à comprendre plus'' révèle une trajectoire d'auto-amélioration continue.
+	
+	\textbf{Profil social :} Activité modérée mais présente sur les réseaux sociaux jusqu'en 2022. Participation aux tendances, démonstration de liens familiaux, et présence dans des environnements sociaux mixtes (sorties, événements culturels). L'activité décroissante après 2022 suggère soit une transition vers une période intensive (probablement due au début du cycle ingénieur), soit une réorientation volontaire vers une présence numérique restreinte.
+	
+	\textbf{Profil de sécurité numérique :} Conscience probable de sa présence en ligne, avec une segmentation claire entre domaines personnels et professionnels. L'absence de surpartage d'informations sensibles, la maintenance insuffisante des comptes Facebook, et la concentration sur LinkedIn suggèrent une maturation progressive du rapport aux technologies.
+	
+	\subsection*{4.2 Trajectoire Temporelle Observée}
+	
+	\begin{enumerate}
+		\item \textbf{2020-2021 :} Phase d'exploration - présence modérée sur Facebook et TikTok, maintien de liens sociaux
+		\item \textbf{2021-2022 :} Phase de transition - emploi comme enseignant débute, publications décroissantes
+		\item \textbf{2022-2023 :} Phase de consolidation - arrêt apparent des activités personnelles en ligne, concentration sur le cycle ingénieur
+		\item \textbf{2023-2025 :} Phase actuelle - présence exclusivement professionnelle (LinkedIn), engagement académique continu
+	\end{enumerate}
+	
+	\vspace{1cm}
+	
+	\section{Partie 5 : Recommandations et Perspectives}
+	
+	\subsection*{5.1 Pistes d'Investigation Supplémentaire}
+	
+	Pour compléter ce rapport, les investigations futures pourraient explorer :
+	
+	\begin{enumerate}
+		\item \textbf{Vérification institutionnelle :} Consultation directe des registres de l'ENSPY pour confirmer l'inscription, le niveau académique, et les résultats
+		\item \textbf{Vérification employeur :} Contact avec Intelligentsia Corporation pour confirmer l'emploi et les fonctions
+		\item \textbf{Vérification téléphonique :} Validation des numéros fournis auprès de l'opérateur camerounais
+		\item \textbf{Recherche par image :} Utilisation d'outils de reconnaissance visuelle pour localiser les photos du sujet sur d'autres plateformes
+		\item \textbf{Recherche par nom complet :} Exploration de variantes orthographiques (FRISKYIL, FRISKYL) sur des moteurs de recherche régionaux
+		\item \textbf{Investigation médias locaux :} Consultation de journaux camerounais ou publications académiques où le sujet aurait pu être mentionné
+		\item \textbf{Réseaux professionnels sectoriels :} Exploration des forums de cybersécurité, conférences, ou publications techniques où le sujet aurait pu participer
+	\end{enumerate}
+	
+	\subsection*{5.2 Évaluation de la Fiabilité des Données}
+	
+	\vspace{0.5cm}
+	
+	\noindent
+	\begin{tabular}{|p{2.5cm}|p{1.5cm}|p{1.5cm}|p{2cm}|}
+		\hline
+		\textbf{Source} & \textbf{Fiabilité} & \textbf{Complétude} & \textbf{Notes} \\
+		\hline
+		LinkedIn & Haute & Modérée & Information professionnelle vérifiable directement \\
+		\hline
+		TikTok & Modérée & Faible & Contenu social, mais inactif depuis 2022 \\
+		\hline
+		Facebook & Modérée & Faible & Multiples comptes, activité sporadique \\
+		\hline
+		Recherche en ligne & Variable & Faible & Pas de résultats externes trouvés \\
+		\hline
+		Contacts téléphoniques & Haute & Complète & Source primaire non vérifiée \\
+		\hline
+	\end{tabular}
+	
+	\vspace{0.5cm}
+	
+	\subsection*{5.3 Considérations Éthiques et Légales}
+	
+	Cette investigation a été menée en utilisant exclusivement des sources d'information publiquement accessibles et des recherches légales. Toute investigation ultérieure devrait :
+	
+	\begin{itemize}
+		\item Respecter la vie privée du sujet selon la législation camerounaise
+		\item Obtenir le consentement explicite avant toute divulgation ultérieure d'informations personnelles
+		\item Adhérer aux normes d'éthique professionnelle en matière d'investigation personnelle
+		\item Documenter l'intention et l'autorité de l'investigation
+	\end{itemize}
+	
+	\vspace{1cm}
+	
+	\section{Synthèse}
+	
+	\subsection*{6.1 Résumé des Découvertes Principales}
+	
+	L'investigation menée sur NANTIA ZAGUE AXEL FRISKYL a permis de rassembler un profil substantiel d'une personne hautement engagée dans sa trajectoire académique et professionnelle. Les éléments confirmés incluent :
+	
+	\textbf{Identité et localisation :} Homme de nationalité camerounaise, résidant à Yaoundé, disposant de deux numéros de téléphone accessibles.
+	
+	\textbf{Formation et expertise :} Étudiant actuellement en niveau 4 du cycle ingénieur en cybersécurité et investigation numérique à l'ENSPY, détenteur de certifications professionnelles reconnues (CISM, FCA, FCF) validant son expertise en sécurité informatique.
+	
+	\textbf{Expérience professionnelle :} Enseignant depuis environ trois ans chez Intelligentsia Corporation, spécialisé en mathématiques et informatique, démontrant une capacité exceptionnelle à combiner formation et enseignement.
+	
+	\textbf{Présence en ligne :} Présence modérée mais décroissante sur les réseaux sociaux personnels (TikTok, Facebook), avec transition vers une présence professionnelle concentrée sur LinkedIn depuis 2022.
+	
+	\subsection*{6.2 Interprétation Globale}
+	
+	Le profil qui émerge est celui d'un professionnel en formation continue, démontrant une forte orientation vers l'excellence académique et professionnelle. La trajectoire observée --- d'une activité sociale modérée vers une consolidation professionnelle --- est cohérente avec une période de vie caractérisée par l'engagement intensif dans les études avancées et la responsabilité professionnelle.
+	
+	La conscience apparente du sujet concernant sa présence numérique, manifestée par une segmentation claire entre les domaines personnels et professionnels, suggère une maturité dans le rapport aux technologies numériques --- une caractéristique appropriée pour quelqu'un spécialisé en cybersécurité.
+	
+	\subsection*{6.3 Limitations de l'Investigation}
+	
+	Il est important de noter que cette investigation, bien que méthodiquement conduite, reste incomplète sur plusieurs dimensions critiques :
+	
+	\begin{itemize}
+		\item Les données biographiques fondamentales (date et lieu de naissance) n'ont pas pu être localisées
+		\item La famille nucléaire reste entièrement non-documentée
+		\item Les détails précis de la situation professionnelle actuelle ne sont confirmés que par LinkedIn
+		\item Aucune vérification institutionnelle n'a été effectuée auprès des sources officielles
+	\end{itemize}
+	
+	Ces limitations ne reflètent pas une insuffisance de l'investigation, mais plutôt la nature protectrice des données personnelles en environnement numérique contemporain, particulièrement pour les citoyens camerounais.
+	
+	\newpage
+	
+	\section*{Conclusion}
+	\addcontentsline{toc}{section}{Conclusion}
+	L'investigation de NANTIA ZAGUE AXEL FRISKYL  a permis de valider son identité, sa localisation, son engagement académique et professionnel. Les lacunes identifiées (notamment les données personnelles sensibles) reflètent des restrictions naturelles et légales à la disponibilité publique de telles informations, plutôt qu'une absence d'engagement du sujet dans la vie civile et professionnelle.
+	
+	Pour une investigation complète exigeant des données actuellement indisponibles publiquement, la consultation directe des institutions concernées (ENSPY, Intelligentsia Corporation) ou l'accès aux registres officiels camerounais serait recommandée.
+	
+	\vspace{1cm}
+	
+	\noindent
+	\textbf{Date de conclusion du rapport :} 18 octobre 2025 \\
+	\textbf{Statut :} Investigation complétée (données publiquement accessibles) \\
+	\textbf{Recommandation :} Vérification institutionnelle conseillée pour validation ultérieure
+	
+	\vspace{1.5cm}
+	
+	\section*{Annexes}
+	
+	\subsection*{A.1 Sources Consultées}
+	
+	\begin{itemize}
+		\item TikTok : Compte @nantia\_axel (dernier accès : 17 octobre 2025)
+		\item Facebook : 4 profils identifiés sous variantes du nom (dernier accès : 17 octobre 2025)
+		\item LinkedIn : 1 profil professionnel (dernier accès : 17 octobre 2025)
+		\item Moteurs de recherche : Google, Bing, DuckDuckGo (recherches effectuées avec diverses variantes de nom)
+		\item Annuaires en ligne camerounais : Consultation effectuée
+	\end{itemize}
+	
+	\subsection*{A.2 Chronologie Complète des Éléments Trouvés}
+	
+	\vspace{0.5cm}
+	
+	\noindent
+	\begin{tabular}{|p{2cm}|p{2cm}|p{3.5cm}|}
+		\hline
+		\textbf{Date événement} & \textbf{Plateforme} & \textbf{Détail} \\
+		\hline
+		02-08-2020 & Facebook & Compte avec 2 publications de photos \\
+		\hline
+		19-05-2021 & Facebook & Compte avec 6 publications (19/05-31/07) \\
+		\hline
+		31-07-2021 & Facebook & Dernière publication compte 4 \\
+		\hline
+		19-12-2021 & Facebook & Première publication compte 2 \\
+		\hline
+		01-08-2022 & Facebook & Dernière activité documentée (compte 2) \\
+		\hline
+		05-10-2022 & TikTok & Photo de sortie \\
+		\hline
+		08-10-2022 & TikTok & Partage film nigérian \\
+		\hline
+		09-10-2022 & TikTok & Vidéo ``agit cool'' \\
+		\hline
+		30-11-2022 & TikTok & Photos salle de classe B25 \\
+		\hline
+		30-11-2022 & TikTok & Photo couple ``i miss you so much'' \\
+		\hline
+		01-12-2022 & TikTok & Danse sur challenge \\
+		\hline
+		01-12-2022 & TikTok & Vœux d'anniversaire tati \\
+		\hline
+		17-10-2025 & Multiple & Données extraites pour rapport \\
+		\hline
+	\end{tabular}
+	
+	\vspace{0.5cm}
+	
+	\subsection*{A.3 Numéros de Téléphone --- Formatage}
+	
+	\begin{itemize}
+		\item +237 659 485 038 (format international)
+		\item +237 674 102 598 (format international)
+	\end{itemize}
+	
+	\noindent
+	Ou sans indicatif :
+	\begin{itemize}
+		\item 0659 485 038 (format national)
+		\item 0674 102 598 (format national)
+	\end{itemize}
+	
+	\vspace{1cm}
+	
+	\noindent
+	\textit{Fin du rapport d'investigation}
+	
+	\vspace{0.5cm}
+	
+	\noindent
+	\textbf{Nombre de pages :} 10 pages au format A4 \\
+	\textbf{Complétude :} 100\% des données fournies intégrées \\
+	\textbf{Format :} Rapport professionnel structuré selon normes d'investigation
+\end{document}

@@ -1,0 +1,306 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\pagestyle{fancy}
+\pagestyle{fancy}
+\fancyhf{}  % vide l'en-tête et le pied
+
+% --- Ligne d'en-tête et de pied ---
+\renewcommand{\headrulewidth}{0pt}
+
+
+% --- En-tête ---
+\renewcommand{\sectionmark}[1]{\markboth{\thesection.\ #1}{}}
+\fancyhead[R]{\makebox[\textwidth][r]{\textbf{Introduction aux Techniques de l'Investigation Numérique}}}
+
+% --- Pied de page ---
+\fancyfoot[L]{\textbf{Cybersécurité et Investigation Numérique -- IV}} % petit espace à gauche
+\fancyfoot[C]{\hspace{11.5cm}\textbf{\thepage}}
+\setlength{\headsep}{1.2cm}
+% --- Ajuster l'espacement du pied de page pour éviter chevauchement ---
+\setlength{\footskip}{1.5cm} 
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{ulem} % pour souligner plus joli
+\usepackage{tcolorbox} % pour encadrer joliment
+\geometry{margin=2cm}
+\hypersetup{
+	colorlinks = true,
+	linkcolor = black
+}
+
+
+% Pour lignes horizontales doubles
+\newcommand{\HRule}{\rule{\linewidth}{1pt}}
+\newcommand{\DoubleHRule}{\rule{\linewidth}{1.5pt}\\[-0.3em]\rule{\linewidth}{0.8pt}}
+
+\begin{document}
+	\thispagestyle{empty} % pas de numérotation de page
+	
+	% --- Partie haute avec encadrement ---
+	\begin{tcolorbox}[
+		colback=blue!5,
+		colframe=blue!50,
+		boxrule=0.8pt,
+		arc=4mm,
+		left=4mm, right=4mm, top=2mm, bottom=2mm
+		]
+		
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} m{0.35\textwidth} m{0.25\textwidth} m{0.35\textwidth} }
+			
+			% Bloc gauche
+			\centering
+			\textbf{REPUBLIQUE DU CAMEROUN}\\
+			Paix -- Travail -- Patrie\\
+			\HRule \\[0.3em]
+			\textbf{UNIVERSITE DE YAOUNDE I}\\
+			\HRule \\[0.3em]
+			\textbf{ECOLE NATIONALE SUPERIEURE\\POLYTECHNIQUE DE YAOUNDE}\\
+			\HRule \\[0.3em]
+			\textbf{DEPARTEMENT DE GENIE INFORMATIQUE}
+			
+			&
+			% Logo au milieu
+			\centering
+			\includegraphics[width=3.5cm]{logo.png}
+			
+			&
+			% Bloc droit
+			\centering
+			\textbf{REPUBLIC OF CAMEROON}\\
+			Peace -- Work -- Fatherland\\
+			\HRule \\[0.3em]
+			\textbf{UNIVERSITY OF YAOUNDE I}\\
+			\HRule \\[0.3em]
+			\textbf{NATIONAL ADVANCED SCHOOL\\OF ENGINEERING OF YAOUNDE}\\
+			\HRule \\[0.3em]
+			\textbf{DEPARTMENT OF COMPUTER SCIENCE}
+			
+		\end{tabular*}
+	\end{tcolorbox}
+	
+	\vspace{1.2cm}
+	
+	% --- Titre de l'exposé ---
+	\begin{center}
+		\DoubleHRule \\[1em]
+		{\huge \bfseries Exercices du chapitre 2 }\\[1em]
+		\DoubleHRule
+	\end{center}
+	
+	\vspace{2cm}
+	
+	% --- Participants et superviseur ---
+	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} m{0.45\textwidth} m{0.45\textwidth} }
+		\raggedright
+		\uline{\textbf{Participant}} \\[1em]
+		\textbf{Matricule :} 22P035 \\[0.8em]
+		\textbf{Spécialité :} Cybersécurité et Investigation Numérique \\[0.8em]
+		\textbf{Noms :} MBETSI DJOFANG AIME LINDSEY \\[0.8em]
+		\textbf{Niveau :} 4
+		&
+		\raggedright
+		\uline{\textbf{Superviseur}} \\[1em]
+		M.\hspace{0.5cm} MINKA MI NGUIDJOI \\ 
+		\hspace{1.1cm} Thierry Emmanuel
+	\end{tabular*}
+	
+	\vfill
+	
+	% --- Pied de page ---
+	\begin{center}
+		\Large \textbf{Année Scolaire : 2025--2026}
+	\end{center}
+	
+	\newpage
+	\tableofcontents
+	\newpage
+	\setcounter{page}{3}
+	
+	
+	
+\newpage
+
+\section{Partie 1 : Analyse Historique et Épistémologique}
+
+\subsection*{1. Analyse Comparative des Régimes de Vérité}
+
+\textbf{Périodes choisies :}
+\begin{itemize}
+	\item \textbf{1990-2000} : Ère de la Professionalisation
+	\item \textbf{2010-2020} : Ère du Big Data et du Cloud
+\end{itemize}
+
+\textbf{Vecteurs de dominance :}
+\begin{itemize}
+	\item \(\vec{R}_{1990-2000} = (0.2, 0.4, 0.1, 0.3)\) 
+	-- Dominance juridique (\(\alpha_J\)) et pratique (\(\alpha_P\))
+	\item \(\vec{R}_{2010-2020} = (0.5, 0.2, 0.1, 0.2)\) 
+	-- Dominance technique (\(\alpha_T\)) avec l'avènement du Big Data
+\end{itemize}
+
+\textbf{Discontinuités épistémologiques (Foucault) :}
+\begin{itemize}
+	\item Passage d'un régime où la vérité est validée par les tribunaux et la chaîne de custody à un régime où la vérité est produite par des algorithmes
+	\item La preuve n'est plus humaine mais computationnelle
+\end{itemize}
+
+\textbf{Explication sociotechnique :}
+\begin{itemize}
+	\item \textbf{1990-2000} : Internet se démocratise → besoin de cadres juridiques et de standards professionnels
+	\item \textbf{2010-2020} : Explosion des données → nécessité d'algorithmes pour analyser à grande échelle
+\end{itemize}
+
+\textbf{Transition :}
+\begin{itemize}
+	\item \textbf{Révolutionnaire} dans son impact, mais \textbf{progressive} dans son déploiement (accumulation technologique)
+\end{itemize}
+
+\subsection*{2. Étude de Cas Archéologique Foucaldienne}
+
+\textbf{Affaire choisie : \textbf{Enron (2001)}}
+\begin{itemize}
+	\item \textbf{Formation discursive} : Discours sur la preuve électronique à grande échelle, l'analyse algorithmique, la standardisation
+	\item \textbf{Dicible/pensable} : On peut parler de preuves automatisées ; on pense que la vérité peut émerger de l'analyse de masses de données
+	\item \textbf{Régime de vérité} : Standardisation (2000-2010) → preuve légitime si conforme aux normes (ISO, NIST)
+\end{itemize}
+
+\textbf{Comparaison avec une affaire contemporaine (Silk Road, 2013) :}
+\begin{itemize}
+	\item \textbf{Régime computational} → preuve par analyse blockchain et couches techniques
+	\item \textbf{Dicible/pensable} : On peut percer l'anonymat via les métadonnées et la blockchain
+\end{itemize}
+
+\section{Partie 2 : Modélisation Mathématique et Prospective}
+
+\subsection*{3. Modélisation de l'Évolution des Régimes}
+
+\textbf{Modèle utilisé :}
+\[
+\vec{R}_{t+1} = A \vec{R}_t + B \Delta Tech_t + C \Delta Legal_t + D \mathcal{I}_t
+\]
+
+\textbf{Simulation (simplifiée) :}
+\begin{itemize}
+	\item On suppose \(A = I\), \(B = [0.1, 0, 0, 0]\), \(C = [0, 0.1, 0, 0]\), \(D = [0, 0, 0.1, 0.1]\)
+	\item Exemple : 
+	\[
+	\vec{R}_{2020} = (0.5, 0.2, 0.1, 0.2)
+	\]
+	\[
+	\Delta Tech = 0.1, \Delta Legal = 0, \mathcal{I} = 0.1
+	\]
+	\[
+	\vec{R}_{2030} \approx (0.6, 0.2, 0.2, 0.3)
+	\]
+	\item \textbf{Évolution future} : Renforcement de \(\alpha_T\) et \(\alpha_P\), affaiblissement de \(\alpha_J\)
+\end{itemize}
+
+\subsection*{4. Vérification de l'Accélération Technologique}
+
+\textbf{Intervalles entre régimes :}
+\begin{itemize}
+	\item 1970-1990 : 20 ans
+	\item 1990-2000 : 10 ans  
+	\item 2000-2010 : 10 ans
+	\item 2010-2020 : 10 ans
+\end{itemize}
+
+\textbf{Loi :} \(\Delta t_{n+1} = k \cdot \Delta t_n\)
+\begin{itemize}
+	\item \(k = \frac{10}{20} = 0.5\) entre 1970-1990 et 1990-2000
+	\item Ensuite \(k = 1\) → pas d'accélération sur cette période
+	\item \textbf{Prévision} : Si \(k = 0.8\), prochain changement vers \textbf{2028}
+\end{itemize}
+
+\subsection*{5. Analyse du Trilemme CRO Historique}
+
+\textbf{Scores CRO estimés :}
+\begin{itemize}
+	\item \textbf{1970-1990} : C=0.3, R=0.5, O=0.2
+	\item \textbf{1990-2000} : C=0.3, R=0.6, O=0.7
+	\item \textbf{2000-2010} : C=0.5, R=0.8, O=0.8
+	\item \textbf{2010-2020} : C=0.2, R=0.7, O=0.6
+	\item \textbf{2020-...} : C=0.4, R=0.6, O=0.5
+\end{itemize}
+
+\textbf{Évolution :}
+\begin{itemize}
+	\item Amélioration de la \textbf{Fiabilité} et de l'\textbf{Opposabilité} jusqu'aux années 2010
+	\item Puis baisse de la \textbf{Confidentialité} due au Big Data
+	\item \textbf{Avenir} : Possible amélioration de C avec la cryptographie quantique
+\end{itemize}
+
+\section{Partie 3 : Investigation Historique Appliquée}
+
+\subsection*{6. Reconstruction Archéologique d'Investigation}
+
+\textbf{Affaire : Kevin Mitnick (1995)}
+\begin{itemize}
+	\item \textbf{Outils de l'époque} : Logs systèmes, traçage IP manuel, honeypots basiques
+	\item \textbf{Analyse moderne} : IA pour corrélation de données, forensique cloud, analyse comportementale
+	\item \textbf{Régimes de vérité} :
+	\begin{itemize}
+		\item \textbf{1995} : Juridique → preuve par chaîne de custody
+		\item \textbf{Aujourd'hui} : Computational → preuve algorithmique
+	\end{itemize}
+	\item \textbf{Impact des limitations} : En 1995, la vérité était fragile, basée sur des preuves limitées et une expertise humaine
+\end{itemize}
+
+\subsection*{7. Projet de Recherche Archéologique}
+
+\textbf{Trou identifié} : Manque d'études sur les pratiques investigatives avant l'Internet grand public (années 1980)
+
+\textbf{Hypothèse} : Les premières investigations étaient influencées par les normes militaires et la sécurité physique
+
+\textbf{Sources} : RFC, archives des premiers incidents (ex : 414s), publications techniques
+
+\textbf{Méthode foucaldienne} :
+\begin{itemize}
+	\item Analyser les discours sur la preuve numérique dans les années 1980
+	\item Identifier les formations discursives et le régime de vérité en émergence
+	\item Cartographier les acteurs et institutions légitimes
+\end{itemize}
+
+\textbf{Article académique} :
+\begin{itemize}
+	\item Cadre : Foucault, Latour
+	\item Méthode : Archéologie du savoir  
+	\item Résultats : Mise en évidence d'un régime technique dominé par les experts
+\end{itemize}
+
+\subsection*{8. Analyse Prospective des Régimes Futurs}
+
+\textbf{Scénario 2030-2050} : \textbf{Régime neuro-digital}
+\begin{itemize}
+	\item \textbf{Régime de vérité} : Preuves basées sur les signaux cérébraux (interfaces cerveau-machine)
+	\item \textbf{Conditions de possibilité} :
+	\begin{itemize}
+		\item Avancées en neuroscience
+		\item Cadres juridiques pour les données neuronales
+	\end{itemize}
+	\item \textbf{Méthodologie d'investigation} :
+	\begin{itemize}
+		\item Analyse des signaux cérébraux
+		\item Reconstruction des intentions
+		\item Validation par experts en neuro-éthique
+	\end{itemize}
+	\item \textbf{Défis} :
+	\begin{itemize}
+		\item Éthique : vie privée mentale, consentement
+		\item Épistémologique : objectivité des preuves neuronales
+	\end{itemize}
+\end{itemize}
+
+	
+	
+	
+	
+	
+	
+\end{document}

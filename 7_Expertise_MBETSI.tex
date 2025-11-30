@@ -1,0 +1,255 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\pagestyle{fancy}
+\pagestyle{fancy}
+\fancyhf{}  % vide l'en-tête et le pied
+
+% --- Ligne d'en-tête et de pied ---
+\renewcommand{\headrulewidth}{0pt}
+
+
+% --- En-tête ---
+\renewcommand{\sectionmark}[1]{\markboth{\thesection.\ #1}{}}
+\fancyhead[R]{\makebox[\textwidth][r]{\textbf{Introduction aux Techniques de l'Investigation Numérique}}}
+
+% --- Pied de page ---
+\fancyfoot[L]{\textbf{Cybersécurité et Investigation Numérique -- IV}} % petit espace à gauche
+\fancyfoot[C]{\hspace{11.5cm}\textbf{\thepage}}
+\setlength{\headsep}{1.2cm}
+% --- Ajuster l'espacement du pied de page pour éviter chevauchement ---
+\setlength{\footskip}{1.5cm} 
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{ulem} % pour souligner plus joli
+\usepackage{tcolorbox} % pour encadrer joliment
+\geometry{margin=2cm}
+\hypersetup{
+	colorlinks = true,
+	linkcolor = black
+}
+
+
+% Pour lignes horizontales doubles
+\newcommand{\HRule}{\rule{\linewidth}{1pt}}
+\newcommand{\DoubleHRule}{\rule{\linewidth}{1.5pt}\\[-0.3em]\rule{\linewidth}{0.8pt}}
+
+\begin{document}
+	\thispagestyle{empty} % pas de numérotation de page
+	
+	% --- Partie haute avec encadrement ---
+	\begin{tcolorbox}[
+		colback=blue!5,
+		colframe=blue!50,
+		boxrule=0.8pt,
+		arc=4mm,
+		left=4mm, right=4mm, top=2mm, bottom=2mm
+		]
+		
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} m{0.35\textwidth} m{0.25\textwidth} m{0.35\textwidth} }
+			
+			% Bloc gauche
+			\centering
+			\textbf{REPUBLIQUE DU CAMEROUN}\\
+			Paix -- Travail -- Patrie\\
+			\HRule \\[0.3em]
+			\textbf{UNIVERSITE DE YAOUNDE I}\\
+			\HRule \\[0.3em]
+			\textbf{ECOLE NATIONALE SUPERIEURE\\POLYTECHNIQUE DE YAOUNDE}\\
+			\HRule \\[0.3em]
+			\textbf{DEPARTEMENT DE GENIE INFORMATIQUE}
+			
+			&
+			% Logo au milieu
+			\centering
+			\includegraphics[width=3.5cm]{logo.png}
+			
+			&
+			% Bloc droit
+			\centering
+			\textbf{REPUBLIC OF CAMEROON}\\
+			Peace -- Work -- Fatherland\\
+			\HRule \\[0.3em]
+			\textbf{UNIVERSITY OF YAOUNDE I}\\
+			\HRule \\[0.3em]
+			\textbf{NATIONAL ADVANCED SCHOOL\\OF ENGINEERING OF YAOUNDE}\\
+			\HRule \\[0.3em]
+			\textbf{DEPARTMENT OF COMPUTER SCIENCE}
+			
+		\end{tabular*}
+	\end{tcolorbox}
+	
+	\vspace{1.2cm}
+	
+	% --- Titre de l'exposé ---
+	\begin{center}
+		\DoubleHRule \\[1em]
+		{\huge \bfseries Construction d'hypothèses concernant la mort de Martinez Zogo }\\[1em]
+		\DoubleHRule
+	\end{center}
+	
+	\vspace{2cm}
+	
+	% --- Participants et superviseur ---
+	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} m{0.45\textwidth} m{0.45\textwidth} }
+		\raggedright
+		\uline{\textbf{Participant}} \\[1em]
+		\textbf{Matricule :} 22P035 \\[0.8em]
+		\textbf{Spécialité :} Cybersécurité et Investigation Numérique \\[0.8em]
+		\textbf{Noms :} MBETSI DJOFANG AIME LINDSEY \\[0.8em]
+		\textbf{Niveau :} 4
+		&
+		\raggedright
+		\uline{\textbf{Superviseur}} \\[1em]
+		M.\hspace{0.5cm} MINKA MI NGUIDJOI \\ 
+		\hspace{1.1cm} Thierry Emmanuel
+	\end{tabular*}
+	
+	\vfill
+	
+	% --- Pied de page ---
+	\begin{center}
+		\Large \textbf{Année Scolaire : 2025--2026}
+	\end{center}
+	
+	\newpage
+	
+	\tableofcontents
+	
+	\newpage
+
+
+
+\section*{Introduction}
+\vspace{0.5cm}
+
+\addcontentsline{toc}{section}{Introduction}
+
+Conformément au Processus Investigatif Universel (PIU), cette analyse construit systématiquement trois hypothèses explicatives concernant la mort de Martinez Zogo survenue le 23 janvier 2023 à Soa. Chaque hypothèse est ensuite confrontée aux éléments probatoires issus de l'ordonnance de renvoi, selon les principes de falsification active et de validation multiméthodes.
+
+\newpage
+
+
+
+\section{Hypothèse 1 (H1) : Mort accidentelle lors d'une opération de torture}
+
+\subsection{Description du scénario}
+La mort de Martinez Zogo résulterait d'une opération de torture menée par le premier commando (EBO'O Clément et al.) ayant dépassé les limites prévues, sans intention homicide initiale.
+
+\subsection{Éléments consolidants}
+\begin{itemize}
+	\item \textbf{Reconnaissance des violences} : EBO'O Clément et GODJE Oumarou décrivent en détail les sévices infligés (câble enfoncé dans l'anus, flagellation, décharge électrique)
+	\item \textbf{Instructions non létales} : DANWE Justin affirme avoir ordonné de "laisser en vie" la victime
+	\item \textbf{Témoignage cohérent} : Les membres du premier commando déclarent avoir quitté les lieux vers 22h en laissant Martinez Zogo vivant
+	\item \textbf{Rapport médical initial} : Constat de décès datant de 3 à 5 jours avant la découverte du corps
+\end{itemize}
+
+\subsection{Éléments réfutants}
+\begin{itemize}
+	\item \textbf{Matériel disproportionné} : Utilisation d'armes (fusil VZ-58, teaser) et techniques violentes (câble anal) incompatibles avec une simple intimidation
+	\item \textbf{Expertise médicale contradictoire} : Le Dr EKANI conclut à une "strangulation après torture", incompatible avec une mort accidentelle
+	\item \textbf{Localisation téléphonique} : Retour du second commando sur les lieux après le départ du premier groupe
+	\item \textbf{Absence de secours} : Aucune tentative de soins malgré l'état critique de la victime
+\end{itemize}
+
+\vspace{0.5cm}
+
+\section{Hypothèse 2 (H2) : Assassinat prémédité par le second commando}
+
+\subsection{Description du scénario}
+La mort serait le résultat d'une seconde opération coordonnée, exécutée par TONGUE NANA, DAOUDA et LAMFU Johnson, visant spécifiquement à éliminer Martinez Zogo.
+
+\subsection{Éléments consolidants}
+\begin{itemize}
+	\item \textbf{Préméditation documentée} : Instructions de DANWE Justin pour une "seconde opération"
+	\item \textbf{Données de géolocalisation} : Présence du second commando sur les lieux vers 23h01
+	\item \textbf{Rapport médico-légal} : Cause du décès = strangulation, survenue après le passage du premier commando
+	\item \textbf{Corde au cou} : Découverte du corps avec une corde autour du cou, élément absent du premier passage
+	\item \textbf{Témoignage du légiste} : Décès datant du moment du passage du second commando
+\end{itemize}
+
+\subsection{Éléments réfutants}
+\begin{itemize}
+	\item \textbf{Dénégations persistantes} : TONGUE NANA et DAOUDA nient toute participation à l'assassinat
+	\item \textbf{Absence de mobile direct} : Le second commando agit sur ordre sans motivation personnelle apparente
+	\item \textbf{Manque de preuves matérielles} : Aucune empreinte ou ADN du second groupe sur la scène
+	\item \textbf{Version alternative} : Le second commando prétend être revenu pour une mission de "nettoyage" sans mise à mort
+\end{itemize}
+
+\vspace{0.5cm}
+
+\section{Hypothèse 3 (H3) : Mort résultant d'une chaîne de commandement criminelle}
+
+\subsection{Description du scénario}
+La mort résulterait d'un plan concerté au plus haut niveau de la DGRE, combinant opérations successives avec intention homicide implicite.
+
+\subsection{Éléments consolidants}
+\begin{itemize}
+	\item \textbf{Implication hiérarchique} : Instructions provenant de EKO EKO (DGRE) et relais par DANWE Justin
+	\item \textbf{Moyens institutionnels} : Utilisation de véhicules, armes et personnels de la DGRE
+	\item \textbf{Financement} : Transactions financières entre AMOUGOU BELINGA et DANWE Justin (2 millions FCFA)
+	\item \textbf{Surveillance préalable} : Dossier "PRESSE" ciblant Martinez Zogo depuis 2015
+	\item \textbf{Concertations} : Échanges téléphoniques et rencontres multiples entre tous les acteurs
+\end{itemize}
+
+\subsection{Éléments réfutants}
+\begin{itemize}
+	\item \textbf{Dénégations hiérarchiques} : EKO EKO nie avoir donné l'ordre d'assassinat
+	\item \textbf{Note de service} : Existence d'une procédure officielle (n°00646) non respectée par DANWE Justin
+	\item \textbf{Discordances internes} : Certains membres du commando ignoraient l'issue létale prévue
+	\item \textbf{Absence d'ordre écrit} : Aucune instruction explicite de mise à mort dans la chaîne de commandement
+\end{itemize}
+
+\vspace{1cm}
+
+\section{Matrice d'analyse comparative}
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|p{4cm}|c|c|c|}
+		\hline
+		\textbf{Élément probatoire} & \textbf{H1 (Accident)} & \textbf{H2 (Second commando)} & \textbf{H3 (Chaîne de commandement)} \\
+		\hline
+		Reconnaissance des tortures & \textcolor{green}{✅ Cohérent} & \textcolor{orange}{🔶 Partiel} & \textcolor{green}{✅ Cohérent} \\
+		\hline
+		Instructions non létales & \textcolor{green}{✅ Cohérent} & \textcolor{red}{❌ Incohérent} & \textcolor{red}{❌ Incohérent} \\
+		\hline
+		Données de localisation & \textcolor{red}{❌ Incohérent} & \textcolor{green}{✅ Cohérent} & \textcolor{green}{✅ Cohérent} \\
+		\hline
+		Cause du décès (strangulation) & \textcolor{red}{❌ Incohérent} & \textcolor{green}{✅ Cohérent} & \textcolor{green}{✅ Cohérent} \\
+		\hline
+		Implication hiérarchique & \textcolor{orange}{🔶 Neutre} & \textcolor{orange}{🔶 Neutre} & \textcolor{green}{✅ Cohérent} \\
+		\hline
+		Financement de l'opération & \textcolor{red}{❌ Incohérent} & \textcolor{red}{❌ Incohérent} & \textcolor{green}{✅ Cohérent} \\
+		\hline
+	\end{tabular}
+	\caption{Matrice de compatibilité hypothèses/preuves}
+\end{table}
+
+\textbf{Légende} : \textcolor{green}{✅ Cohérent} - \textcolor{red}{❌ Incohérent} - \textcolor{orange}{🔶 Neutre}
+
+\vspace{1cm}
+
+\newpage
+
+\section*{Conclusion}
+
+\vspace{0.5cm}
+
+\addcontentsline{toc}{section}{Conclusion}
+
+L'analyse des hypothèses concurrentes, couplée à la méthode de falsification active, permet d'établir que :
+\begin{itemize}
+	\item \textbf{H1 (mort accidentelle)} est réfutée par la nature des violences et la cause du décès
+	\item \textbf{H2 (second commando)} présente la plus forte cohérence avec les preuves matérielles et médico-légales
+	\item \textbf{H3 (chaîne de commandement)} explique le contexte organisationnel mais manque de preuves directes d'intention homicide au plus haut niveau
+\end{itemize}
+
+L'hypothèse H2 résiste le mieux aux tentatives de falsification et présente le meilleur ratio preuves cohérentes/incohérentes, tout en étant compatible avec les éléments de H3 concernant le cadre institutionnel.
+
+\end{document}

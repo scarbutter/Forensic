@@ -1,0 +1,856 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\pagestyle{fancy}
+\pagestyle{fancy}
+\fancyhf{}  % vide l'en-tête et le pied
+
+% --- Ligne d'en-tête et de pied ---
+\renewcommand{\headrulewidth}{0pt}
+
+
+% --- En-tête ---
+\renewcommand{\sectionmark}[1]{\markboth{\thesection.\ #1}{}}
+\fancyhead[R]{\makebox[\textwidth][r]{\textbf{Introduction aux Techniques de l'Investigation Numérique}}}
+
+% --- Pied de page ---
+\fancyfoot[L]{\textbf{Cybersécurité et Investigation Numérique -- IV}} % petit espace à gauche
+\fancyfoot[C]{\hspace{11.5cm}\textbf{\thepage}}
+\setlength{\headsep}{1.2cm}
+% --- Ajuster l'espacement du pied de page pour éviter chevauchement ---
+\setlength{\footskip}{1.5cm} 
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{ulem} % pour souligner plus joli
+\usepackage{tcolorbox} % pour encadrer joliment
+\geometry{margin=2cm}
+\hypersetup{
+	colorlinks = true,
+	linkcolor = black
+}
+
+
+% Pour lignes horizontales doubles
+\newcommand{\HRule}{\rule{\linewidth}{1pt}}
+\newcommand{\DoubleHRule}{\rule{\linewidth}{1.5pt}\\[-0.3em]\rule{\linewidth}{0.8pt}}
+
+\begin{document}
+	\thispagestyle{empty} % pas de numérotation de page
+	
+	% --- Partie haute avec encadrement ---
+	\begin{tcolorbox}[
+		colback=blue!5,
+		colframe=blue!50,
+		boxrule=0.8pt,
+		arc=4mm,
+		left=4mm, right=4mm, top=2mm, bottom=2mm
+		]
+		
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} m{0.35\textwidth} m{0.25\textwidth} m{0.35\textwidth} }
+			
+			% Bloc gauche
+			\centering
+			\textbf{REPUBLIQUE DU CAMEROUN}\\
+			Paix -- Travail -- Patrie\\
+			\HRule \\[0.3em]
+			\textbf{UNIVERSITE DE YAOUNDE I}\\
+			\HRule \\[0.3em]
+			\textbf{ECOLE NATIONALE SUPERIEURE\\POLYTECHNIQUE DE YAOUNDE}\\
+			\HRule \\[0.3em]
+			\textbf{DEPARTEMENT DE GENIE INFORMATIQUE}
+			
+			&
+			% Logo au milieu
+			\centering
+			\includegraphics[width=3.5cm]{logo.png}
+			
+			&
+			% Bloc droit
+			\centering
+			\textbf{REPUBLIC OF CAMEROON}\\
+			Peace -- Work -- Fatherland\\
+			\HRule \\[0.3em]
+			\textbf{UNIVERSITY OF YAOUNDE I}\\
+			\HRule \\[0.3em]
+			\textbf{NATIONAL ADVANCED SCHOOL\\OF ENGINEERING OF YAOUNDE}\\
+			\HRule \\[0.3em]
+			\textbf{DEPARTMENT OF COMPUTER SCIENCE}
+			
+		\end{tabular*}
+	\end{tcolorbox}
+	
+	\vspace{1.2cm}
+	
+	% --- Titre de l'exposé ---
+	\begin{center}
+		\DoubleHRule \\[1em]
+		{\huge \bfseries Investigation numérique d'une ordonnance de renvoi }\\[1em]
+		\DoubleHRule
+	\end{center}
+	
+	\vspace{2cm}
+	
+	% --- Participants et superviseur ---
+	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} m{0.45\textwidth} m{0.45\textwidth} }
+		\raggedright
+		\uline{\textbf{Participant}} \\[1em]
+		\textbf{Matricule :} 22P035 \\[0.8em]
+		\textbf{Spécialité :} Cybersécurité et Investigation Numérique \\[0.8em]
+		\textbf{Noms :} MBETSI DJOFANG AIME LINDSEY \\[0.8em]
+		\textbf{Niveau :} 4
+		&
+		\raggedright
+		\uline{\textbf{Superviseur}} \\[1em]
+		M.\hspace{0.5cm} MINKA MI NGUIDJOI \\ 
+		\hspace{1.1cm} Thierry Emmanuel
+	\end{tabular*}
+	
+	\vfill
+	
+	% --- Pied de page ---
+	\begin{center}
+		\Large \textbf{Année Scolaire : 2025--2026}
+	\end{center}
+	
+	\newpage
+
+\tableofcontents
+
+\newpage
+
+\setcounter{page}{4}
+
+\section*{\Huge Introduction}
+
+\vspace{0.5cm}
+
+\addcontentsline{toc}{section}{Introduction}
+
+L'univers numérique contemporain a profondément transformé la façon dont les enquêteurs judiciaires recueillent, analysent et présentent les preuves aux magistrats instructeurs. Dans le contexte des crimes graves impliquant des hommes de l'État, des forces de défense et des opérations coordonnées, l'expertise judiciaire revêt une importance capitale pour établir les responsabilités pénales et justifier les ordonnances de renvoi devant les juridictions compétentes.
+
+Le présent rapport d'expertise se concentre sur une ordonnance de renvoi théorique, rendue par le Tribunal Militaire de Yaoundé le 29 février 2024, portant sur une affaire mettant en cause dix-sept (17) inculpés pour crimes graves : assassinat, coaction d'assassinat et complicité, torture, arrestation et séquestration, usurpation de titre et de fonctions, violation de consignes militaires et omission de porter secours.
+
+Cette expertise examine les mécanismes par lesquels l'expert judiciaire contribue à la formulation d'une ordonnance d'inculpation crédible et légalement fondée, en articulation précise avec les éléments de preuve numériques, matériels et circonstanciels identifiés dans l'enquête préliminaire et l'instruction judiciaire.
+
+\newpage
+
+\section{Les Éléments Fournis par l'Expert Judiciaire au Magistrat pour une Ordonnance d'Inculpation en Matière de Crimes Graves}
+
+\subsection{Rapport d'Expertise Technique et Scientifique Complet}
+
+L'expert judiciaire fournit un rapport d'expertise détaillé qui constitue le socle de sa mission. Ce rapport doit :
+
+\begin{itemize}
+
+\item Répondre précisément aux questions posées par le juge dans l'ordonnance de mission : qui, quoi, où, quand, comment
+
+\item Présenter une chronologie rigoureuse des faits reconstitués à partir des traces numériques, matérielles ou scientifiques
+
+\item Établir les liens de causalité entre les actes et leurs auteurs
+
+\item Démontrer la chaîne de responsabilité reliant les inculpés aux infractions
+
+\end{itemize}
+
+\subsubsection{Application à l'Affaire du 23 janvier 2023}
+
+Dans l'affaire examinée, l'expert judiciaire devait établir une chronologie précise des événements ayant conduit à la mort de MBANI ZOGO ARSENE SALOMON dit « MARTINEZ ZOGO ». Le rapport d'expertise devait répondre à des questions fondamentales :
+
+\begin{enumerate}
+
+\item \textbf{Qui ?} Identifier l'ensemble des auteurs, coauteurs et complices, du Lieutenant-Colonel DANWE JUSTIN au Journaliste BIDJANG OBA'A BIKORO BRUNO FRANÇOIS.
+
+\item \textbf{Quoi ?} Caractériser précisément les actes reprochés à chaque inculpé : assassinat prémédité, torture avec instrument tranchant (cutter), torture par électrode (teaser), strangulation avec corde, infliction de sévices corporels multiples, usurpation d'identité militaire (faux capitaine ARTHUR ESSOMBA).
+
+\item \textbf{Où ?} Localiser les lieux de commission des infractions : quartier SOA (découverte du corps), carrière d'EBOGO (lieu de torture initial), Brigade de Gendarmerie de Nkolkondi (point d'arrestation), domicile du défunt à Yaoundé, Bureau du Groupe l'Anecdote.
+
+\item \textbf{Quand ?} Établir une chronologie précise : 29 décembre 2022 (discussion AMOUGOU BELINGA -- DANWE JUSTIN), 6-17 janvier 2023 (filature), 18 janvier 2023 (deuxième opération fatale), 23 janvier 2023 (découverte du corps).
+
+\item \textbf{Comment ?} Documenter les modalités opérationnelles : utilisation d'un véhicule PRADO, déploiement coordonné de douze (12) militaires, phases de filature par TONGUE NANA et LAMFU JOHNSON, arrêt à la Brigade de Gendarmerie de Nkolkondi, transport en carrière d'EBOGO, infliction progressive de sévices, strangulation finale.
+
+\end{enumerate}
+
+\subsection{Preuves de Culpabilité Catégorisées par Type d'Infraction}
+
+\subsubsection{Pour l'Assassinat}
+
+L'expert judiciaire doit fournir une hiérarchie de preuves établissant sans équivoque le caractère délibéré et prémédité de l'homicide. L'affaire du 23 janvier 2023 présente les éléments probants suivants :
+
+\paragraph{Preuves Médico-Légales}
+
+Le rapport d'autopsie du Docteur EKANI Boukar, Médecin Chirurgien et Directeur de l'Hôpital de District de SOA, conclut explicitement que MARTINEZ ZOGO est décédé suite à une « strangulation après torture ». Cette conclusion médico-légale établit le mode opératoire et le délai de décès : 3 à 5 jours avant la découverte du corps le 23 janvier 2023, soit précisément le 18-20 janvier 2023. Les constatations du Docteur MOGUE BOPDA Tidiane, Médecin Légiste ayant assisté à la découverte du corps, mentionnent la présence d'une corde au niveau du cou, confirmant le mécanisme de strangulation. L'absence de réaction vitale (hématomes périmortuaires, rougeurs d'ecchymoses caractéristiques des vivants) établit que la victime était déjà décédée lors du dernier « traitement » infligé par le commando.
+
+\paragraph{Preuves Temporelles et de Localisation Numériques}
+
+L'exploitation des données de localisation téléphonique constitue une pièce maîtresse de la preuve. Ces données révèlent que TONGUE NANA, qui affirmait n'être jamais arrivé à EBOGO, s'y trouvait en réalité à 23h01 le jour de l'opération fatale. Parallèlement, les données de localisation de EBO'O CLEMENT, LENOIR BOSCO DAWA, GODJE VINCENT et BAKAÏWE SYLVAIN indiquent qu'ils avaient quitté EBOGO en direction du Mess des Officiers. Cette chronologie téléphonique établit que :
+
+\begin{itemize}
+
+\item La première phase de torture à EBOGO s'est déroulée selon le plan établi par DANWE JUSTIN ;
+
+\item Les premiers tortionnaires ont libéré leur victime apparemment vivante (selon leurs propres dénégations) ;
+
+\item TONGUE NANA et DAOUDA sont ensuite arrivés à EBOGO pour achever la victime ;
+
+\item LAMFU JOHNSON, prétendument en congé pour assister son épouse accouchée, était également présent à EBOGO lors de cette phase terminale, contredisant son alibi.
+
+\end{itemize}
+
+\paragraph{Preuves de Préméditation}
+
+La préméditation ressort de plusieurs éléments circonstanciels majeurs :
+
+\begin{enumerate}
+
+\item \textbf{Préparation matérielle} : Rassemblement préalable d'instruments de torture (cutter apprêté pour entailler l'oreille, câble électrique, corde à linge, huile de palme, farine) indique une planification délibérée plutôt qu'une correction spontanée.
+
+\item \textbf{Mobilisation de ressources} : Déploiement de 12 militaires, dont une équipe de filature spécialisée sur 12 jours consécutifs (6-17 janvier 2023), représente une opération coordonnée et préparée, non une initiative personnelle.
+
+\item \textbf{Matériel létal} : Utilisation d'un fusil VZ-58, d'un teaser (décharge électrique neutralisante), d'armes de traumatisme contondant (câbles, fouets) sur une cible décrite comme un homme frêle, asthmatique, affaibli par son état de santé, ne pouvait avoir pour objectif qu'une correction physique superficielle. La nature et la quantité du matériel déploié révèlent clairement l'intention de donner la mort.
+
+\item \textbf{Financement préalable} : AMOUGOU BELINGA aurait remis 2.000.000 de francs CFA à DANWE JUSTIN le 29 décembre 2022, selon les déclarations du dernier. Bien qu'AMOUGOU dénégateur, cette remise de fonds antérieure à l'enlèvement établit un lien causal de commanditaire.
+
+\item \textbf{Confirmations auprès du commanditaire} : Les images de vidéosurveillance au bureau d'AMOUGOU BELINGA montrent DANWE JUSTIN le 16 janvier 2023 (avant l'opération fatale) et le 18 janvier 2023 (après l'opération fatale), suggérant des phases de préparation et de compte-rendu d'une mission commanditée.
+
+\end{enumerate}
+
+\subsubsection{Pour la Torture}
+
+La torture est l'infraction qui se manifeste de la manière la plus directe et la plus documentée dans cette affaire. Elle constitue un crime contre l'humanité au sens des conventions internationales et du droit pénal camerounais.
+
+\paragraph{Documentation des Sévices Corporels}
+
+Les dépositions devant le Juge d'instruction documentent des actes de torture multiples et cumulatifs :
+
+\begin{enumerate}
+
+\item \textbf{Arrachement/Entaille de l'oreille} : BAKAÏWE SYLVAIN, sur instructions de DANWE JUSTIN, a entaillé l'oreille de la victime à l'aide d'un cutter apprêté à cette fin, provoquant un saignement abondant. Cette mutilation grave vise délibérément à infliger une douleur intense et un traumatisme physique et psychique.
+
+\item \textbf{Insertion d'objet dans l'orifice anal} : EBO'O CLEMENT a enfilé un câble électrique dans l'anus de MARTINEZ ZOGO. Cet acte, corroboré par les déclarations concordantes de GODJE OUMAROU et BAKAÏWE SYLVAIN lors de la confrontation, constitue une torture sexuelle causant douleur et humiliation.
+
+\item \textbf{Coups de fouet et bastonnade} : Le câble électrique était utilisé pour administrer des coups de fouet répétés. EBO'O CLEMENT a reconnu avoir « bastonné la victime avec un câble spécialement apprêté ». Les autres membres du commando (GODJE OUMAROU, BAKAÏWE SYLVAIN) ont participé à ces frappages.
+
+\item \textbf{Décharge électrique (teaser)} : LENOIR DAWA a appliqué un « teaser » (décharge électrique neutralisante) au moment de l'arrestation, causant un affaiblissement considérable de la victime selon les témoignages.
+
+\item \textbf{Recouvrement du corps d'huile et farine} : EBO'O CLEMENT a versé de l'huile de palme et de la farine sur le corps entièrement dévêtu de la victime, acte d'humiliation combiné à l'infliction de douleur.
+
+\item \textbf{Strangulation finale avec corde} : Le rapport d'autopsie établit la présence d'une corde au niveau du cou, mécanisme par lequel TONGUE NANA et DAOUDA ont achevé la victime.
+
+\end{enumerate}
+
+\paragraph{Preuves d'Intentionnalité}
+
+L'intentionnalité d'infliger des souffrances ressort de manière irréfutable des éléments suivants :
+
+\begin{enumerate}
+
+\item \textbf{Communications ordonnant la torture} : DANWE JUSTIN a donné des instructions explicites à EBO'O CLEMENT : « arrêter MARTINEZ ZOGO, le fouetter, lui couper une oreille ou lui casser la cheville ». Ces instructions ne cachent aucunement l'intention d'infliger des violences physiques.
+
+\item \textbf{Prétexte invoqué} : Selon GODJE OUMAROU et EBO'O CLEMENT, l'objectif déclaré était « d'infliger des violences physiques à MARTINEZ ZOGO afin que ce dernier cesse de parler des membres du gouvernement et des autorités de la République ». Cette confession établit l'intention punitive et coercitive caractéristique de la torture.
+
+\item \textbf{Coordination systématique} : La présence de NZOCKMENPING MARTIAL THEODORE, armé et posté à l'entrée de la carrière d'EBOGO pour « assurer la couverture », prouve que la torture s'est déroulée comme une opération organisée et planifiée, non comme un débordement spontané.
+
+\item \textbf{Menaces antérieures} : BIDJANG OBA'A BIKORO BRUNO FRANÇOIS aurait déclaré à Paul Daisy BIYA quelques jours avant les faits : « on sera sans pitié pour lui », établissant une intention prédéterminée de commettre un acte violent.
+
+\end{enumerate}
+
+\subsubsection{Pour l'Arrestation et la Séquestration Illégale}
+
+\paragraph{Caractérisation de l'Infraction}
+
+L'arrestation de MARTINEZ ZOGO au niveau de la Brigade de Gendarmerie de Nkolkondi par GODJE OUMAROU, LENOIR DAWA et NZOCKMENPING MARTIAL n'était autorisée par aucun mandat judiciaire. MARTINEZ ZOGO n'était pas recherché pour une quelconque infraction ; il n'existait aucun flagrant délit ; l'arrestation n'entrait pas dans le cadre régulier des opérations de maintien de l'ordre. 
+
+Cette arrestation constitue donc une « privation de liberté » réprimée par l'article 291 du Code Pénal camerounais. Le transport ultérieur en carrière d'EBOGO, loin de tout lieu de police ou d'armée, en l'absence de documentation administrative, allonge la durée de la séquestration en captivité.
+
+\paragraph{Preuves Circonstancielles}
+
+\begin{enumerate}
+
+\item \textbf{Admission concordante des auteurs} : GODJE OUMAROU, bien que reconnaissant les faits, prétend agir « dans le cadre du servicier régulier ». EBO'O CLEMENT affirme avoir agi en exécution d'une « mission tactique d'intervention régulière ». Ces justifications dans un cadre militaire ne suppriment pas le caractère illégal d'une arrestation sans mandat contre un civil.
+
+\item \textbf{Transport vers lieu non régulier} : La conduite en carrière d'EBOGO, non en commissariat ou casernement reconnu, établit l'illégalité de la séquestration.
+
+\item \textbf{Absence de documentation} : Aucun procès-verbal d'arrestation, aucun registre de garde à vue n'a été versé au dossier. Cette omission administrative caractérise l'infraction de séquestration arbitraire.
+
+\end{enumerate}
+
+\subsubsection{Pour l'Usurpation de Titre et de Fonctions}
+
+\paragraph{Cas de BIDZONGO MBEDE ALBERT alias « ARTHUR ESSOMBA »}
+
+BIDZONGO MBEDE ALBERT s'est présenté à MARTINEZ ZOGO sous le titre de « Capitaine ARTHUR ESSOMBA » de la DGRE. Or, les investigations établissent que BIDZONGO MBEDE ALBERT est en réalité « Responsable VIP escorte et protection garde du corps » domicilié à Yaoundé-Kondengui. Il n'existe aucune trace d'un officier portant le nom ARTHUR ESSOMBA dans les registres de la DGRE.
+
+Cette usurpation de titre militaire dans le contexte d'une opération criminelle grave constitue l'infraction d'usurpation prévue par le Code Pénal, aggravée du fait qu'elle s'inscrit dans la commission d'autres crimes graves.
+
+\paragraph{Preuves de l'Usurpation}
+
+\begin{enumerate}
+
+\item \textbf{Témoignages} : Les témoins ont confirmé que BIDZONGO MBEDE se présentait comme « Capitaine ARTHUR ESSOMBA de la DGRE ».
+
+\item \textbf{Absence de registre} : Aucun officier portant ces noms n'est inscrit aux registres de la Direction Générale de la Recherche Extérieure.
+
+\item \textbf{Circonstance aggravante} : L'usurpation a permis à BIDZONGO MBEDE de leurrer la victime quant à l'identité et les intentions de la personne qui le contactait, facilitant ainsi son enlèvement ultérieur.
+
+\end{enumerate}
+
+\subsection{Déclarations et Témoignages Structurés}
+
+L'expert judiciaire organise et présente les témoignages selon une structure logique établissant la crédibilité et la convergence des preuves.
+
+\subsubsection{Déclarations de la Victime (Post-mortem)}
+
+Bien que MARTINEZ ZOGO soit décédé, ses appels téléphoniques constituent une forme de témoignage documenté :
+
+\begin{enumerate}
+
+\item \textbf{Appel à SAVOM MARTIN} : L'examen des données d'appels sur le téléphone de MARTINEZ ZOGO établit qu'il a appelé SAVOM MARTIN quelques minutes avant l'attaque, suggérant une demande de secours ou de clarification auprès d'une personne potentiellement impliquée dans l'opération.
+
+\item \textbf{Appel au faux capitaine ARTHUR ESSOMBA} : BIDZONGO MBEDE ALBERT avait rencontré MARTINEZ ZOGO quelques heures avant l'enlèvement, l'ayant appelé au téléphone avec insistance pour, selon des témoins, lui remettre des documents compromettants contre certaines personnalités. Ce contact établit le rôle d'appât joué par BIDZONGO MBEDE.
+
+\end{enumerate}
+
+\subsubsection{Témoignages des Auteurs et Complices}
+
+L'expert judiciaire doit structurer les dépositions des auteurs matériels, distinguant entre admissions franches, dénégations partielles et justifications invoquées.
+
+\paragraph{Admissions des Tortionnaires de Première Phase}
+
+GODJE OUMAROU a « aisément reconnu les faits » dans leurs intégralité. EBO'O CLEMENT et BAKAÏWE SYLVAIN, bien qu'initialement « aient nié avec véhémence », se sont contredits lors de la confrontation en reconnaissant mutuellement les violences infligées. LENOIR DAWA a d'abord nié puis reconnu lors de la confrontation (selon le témoignage d'EBO'O et BAKAÏWE) sa participation aux frappages et l'application du teaser.
+
+\paragraph{Dénégations des Auteurs de Deuxième Phase}
+
+TONGUE NANA, DAOUDA et LAMFU JOHNSON ont tous « rejeté avec véhémence » les faits de coaction d'assassinat. Cependant, les données de localisation téléphonique contredisent formellement ces dénégations :
+
+\begin{enumerate}
+
+\item \textbf{TONGUE NANA} : Affirme n'être jamais arrivé à EBOGO. Contredit par les données de localisation le plaçant à EBOGO à 23h01, moment de la découverte de la victime défunte avec corde au cou.
+
+\item \textbf{DAOUDA} : Prétend avoir été renvoyé à SOA par DANWE JUSTIN et n'être jamais arrivé à EBOGO. Les données de localisation confirment son présence à EBOGO avec TONGUE NANA.
+
+\item \textbf{LAMFU JOHNSON} : Invoque un alibi (reste avec son épouse accouchée à l'hôpital). Les données de localisation le placent à EBOGO au moment critique. Le rapport médico-légal du Docteur EKANI établit que la mort remonte à 3-5 jours avant la découverte, précisément au moment de sa présence documentée à EBOGO par les données de localisation.
+
+\end{enumerate}
+
+\paragraph{Justifications Invoquées par les Commanditaires}
+
+DANWE JUSTIN jongle entre trois versions des faits :
+
+\begin{enumerate}
+
+\item \textbf{Initiative personnelle} : Prétend avoir agi sur sa propre initiative ;
+
+\item \textbf{Ordre hiérarchique de EKO EKO} : Affiche ultérieurement avoir agi sur ordre de son chef hiérarchique, le Commissaire Divisionnaire LEOPOLD MAXIME EKO EKO ;
+
+\item \textbf{Commande d'AMOUGOU BELINGA} : Déclare « avoir reçu une mission de Jean-Pierre AMOUGOU BELINGA de faire taire MARTINEZ ZOGO ».
+
+\end{enumerate}
+
+Ces variations montrent une stratégie de defense incohérente tentant de diluer la responsabilité personnelle.
+
+\subsubsection{Témoignages de Tiers Confirmant l'Implication}
+
+\paragraph{Elong Lobe James, Conseiller Technique No1 à la DGRE}
+
+Ce témoin établit que la salle de crise où s'est déroulé le briefing préparatoire n'abrite que des réunions pour missions ordonnées par le DGRE lui-même, non des initiatives personnelles de subordonnés. Cette confession du cadre supérieur de la DGRE contredit la version d'EKO EKO selon laquelle il n'aurait pas autorisé l'opération.
+
+\paragraph{Moudie Eimmanuella, épouse Bassomo}
+
+Confirmée que MARTINEZ ZOGO était une cible de la DGRE dans le cadre du dossier « PRESSE » depuis 2015, établissant un motif à long terme et une surveillance continue de la victime comme élément du dossier de crime prémedité.
+
+\paragraph{Commissaire Principal SAÏWANG YVES}
+
+Confirme sans ambiguïtés que MARTINEZ ZOGO était une cible DGRE depuis 2017 et qu'il en était personnellement chargé du suivi. Cette confirmation provenant du policier ayant fourni les données de localisation établit le continuum de l'implication institutionnelle de la DGRE dans le ciblage de la victime.
+
+\subsection{Analyse de la Cohérence Probante}
+
+\subsubsection{Triangulation des Preuves}
+
+L'expert judiciaire doit démontrer que plusieurs sources indépendantes convergent vers les mêmes conclusions :
+
+\paragraph{Convergence Multi-Source}
+
+\begin{enumerate}
+
+\item \textbf{Rapport médico-légal + Données de localisation} : Le rapport d'autopsie établit le décès par strangulation 3-5 jours avant découverte (18-20 janvier 2023). Les données de localisation placent TONGUE NANA, DAOUDA et LAMFU JOHNSON précisément à EBOGO le 18-20 janvier, corroborant le rapport d'autopsie.
+
+\item \textbf{Dépositions + Données de localisation} : GODJE OUMAROU reconnaît avoir laissé MARTINEZ ZOGO « bien en vie » avant 22h. Les données de localisation indiquent que GODJE OUMAROU a quitté EBOGO en direction du Mess des Officiers, tandis que TONGUE NANA y est arrivé à 23h01, établissant le passage de relais du commando.
+
+\item \textbf{Témoignages oculaires + Preuves documentaires} : Elong Lobe James confirme les usages de la salle de crise ; les images de vidéosurveillance montrent DANWE JUSTIN visitant AMOUGOU BELINGA avant et après l'opération fatale.
+
+\item \textbf{Admissions des auteurs + Preuves matérielles} : EBO'O CLEMENT reconnaît avoir enfilé le câble « dans l'anus de la victime ». Le rapport d'autopsie mentionne les lésions anales graves, corroborant l'admission.
+
+\end{enumerate}
+
+\subsubsection{Absence de Contradictions Majeures}
+
+\begin{enumerate}
+
+\item \textbf{Contradiction résolue : Alibi de LAMFU JOHNSON} : Bien que LAMFU invoque le congé pour assister son épouse accouchée, cette justification s'effrite devant les données de localisation le plaçant à EBOGO au moment critique, contredisant l'absence documentée de son dossier de mission officiel pour cette seconde phase.
+
+\item \textbf{Contradiction dans les dénégations de la première phase} : LENOIR DAWA prétend n'avoir pas participé aux violences physiques. Cette dénégation est contredite non seulement par EBO'O et BAKAÏWE lors de la confrontation, mais aussi par son propre enregistrement vidéo (selon le dossier judiciaire) le montrant administrant des coups pendant le traitement.
+
+\item \textbf{Cohérence de la chaîne documentée de commandement} : Bien que EKO EKO dénégateur, l'ensemble des preuves (usage de la salle de crise, ressources DGRE déployées, SAÏWANG YVES confirmant le mandat sur MARTINEZ ZOGO depuis 2017) établissent que l'opération ne pouvait être qu'une initiative dirigeante, non une rébellion de subordonné.
+
+\end{enumerate}
+
+\subsubsection{Force Probante Comparée}
+
+L'expert établit une hiérarchie des preuves selon leur solidité juridique :
+
+\paragraph{Preuves Directes (Très Forte Valeur Probante)}
+
+\begin{enumerate}
+
+\item Données de localisation téléphonique corroborées par concordance avec délai de décès médico-légal ;
+
+\item Rapport d'autopsie concluant explicitement au décès par strangulation ;
+
+\item Admissions volontaires et sans équivoque de GODJE OUMAROU au sujet de la torture ;
+
+\item Images de vidéosurveillance au bureau d'AMOUGOU BELINGA montrant DANWE JUSTIN avant et après l'opération.
+
+\end{enumerate}
+
+\paragraph{Preuves Circonstancielles (Moyenne à Forte Valeur Probante)}
+
+\begin{enumerate}
+
+\item Listings d'appels téléphoniques établissant que MARTINEZ ZOGO a appelé SAVOM MARTIN quelques minutes avant l'attaque ;
+
+\item Rassemblement préalable d'instruments de torture ;
+
+\item Remise de 2.000.000 de francs CFA par AMOUGOU BELINGA à DANWE JUSTIN le 29 décembre 2022 ;
+
+\item Témoignages de tiers indépendants (ELONG LOBE JAMES, MOUDIE EIMMANUELLA, SAÏWANG YVES) corroborant les structures institutionnelles et motivations.
+
+\end{enumerate}
+
+\paragraph{Preuves Ténues (Faible Valeur Probante, mais Significatives en Accumulation)}
+
+\begin{enumerate}
+
+\item Déclarations de BIDJANG OBA'A BIKORO à Paul Daisy BIYA concernant l'absence de pitié (susceptibles d'interprétations multiples) ;
+
+\item Tensions entre MARTINEZ ZOGO et le Groupe l'Anecdote (motivation possible mais non suffisante seule) ;
+
+\item Dénégations des tortionnaires de première phase (invalides du fait de contradictions lors de confrontation).
+
+\end{enumerate}
+
+\subsubsection{Estimation du Niveau de Certitude}
+
+Sur la base de cette architecture probante, l'expert judiciaire peut conclure avec un degré élevé de certitude (supérieur à 95\%) que :
+
+\begin{enumerate}
+
+\item MARTINEZ ZOGO est décédé par strangulation entre le 18 et 20 janvier 2023 ;
+
+\item Cette mort a été précédée d'une séquence de tortures infligées par EBO'O CLEMENT, GODJE OUMAROU, BAKAÏWE SYLVAIN et LENOIR DAWA à la carrière d'EBOGO ;
+
+\item Les auteurs de la phase terminale (strangulation finale) incluent probablement TONGUE NANA et DAOUDA, possiblement assistés par LAMFU JOHNSON, sur la base des données de localisation téléphonique ;
+
+\item Cette opération n'était pas une initiative isolée de subordonnés, mais l'exécution d'une mission commanditée par le Lieutenant-Colonel DANWE JUSTIN, probablement avec l'implication du Commissaire Divisionnaire LEOPOLD MAXIME EKO EKO et de JEAN-PIERRE AMOUGOU BELINGA.
+
+\end{enumerate}
+
+\subsection{Chaîne de Preuve (Chaîne de Custode) Documentée}
+
+La validité juridique des preuves repose sur leur intégrité tout au long du processus d'enquête.
+
+\subsubsection{Traçabilité de la Chaîne Numérique}
+
+\paragraph{Données de Localisation Téléphonique}
+
+\begin{enumerate}
+
+\item \textbf{Provenance} : Données extraites des registres d'opérateurs de télécommunications camerounais (opérateurs de téléphonie mobile) ;
+
+\item \textbf{Extraction} : Effectuée par SAÏWANG YVES et HEUOJI GUY SERGE de la Division de la Surveillance Electronique de la DGRE, sur réquisition du juge d'instruction ;
+
+\item \textbf{Transmission} : Transmise via chaîne hiérarchique de la DGRE vers la juridiction d'instruction ;
+
+\item \textbf{Authentification} : Vérification possible par contact direct auprès des opérateurs téléphoniques pour confirmation des enregistrements ;
+
+\item \textbf{Absence de Contamination} : Les données numériques conservent leur intégrité du fait de horodatage informatisé automatisé, absence de modification manuelle possible sans trace.
+
+\end{enumerate}
+
+\paragraph{Registres d'Appels Téléphoniques}
+
+\begin{enumerate}
+
+\item \textbf{Source} : Téléphone personnel de MARTINEZ ZOGO, séquestré lors de l'enquête ;
+
+\item \textbf{Extraction} : Effectuée par expert en investigation numérique avec outils certifiés ;
+
+\item \textbf{Vérification de Hash} : Pour investigation numérique rigoureuse, vérification MD5/SHA256 des données numériques extraites permet de confirmer l'absence d'altération ;
+
+\item \textbf{Conservation} : Les données sont conservées en double (original + copie de travail), le double étant utilisé pour analyse, l'original scellé.
+
+\end{enumerate}
+
+\subsubsection{Intégrité des Preuves Physiques}
+
+\paragraph{Rapport d'Autopsie}
+
+\begin{enumerate}
+
+\item \textbf{Contexte} : Réalisée par Docteur EKANI Boukar, Directeur de l'Hôpital de District de SOA, dans les conditions de protocole médico-légal ;
+
+\item \textbf{Témoins} : Assistance du Docteur MOGUE BOPDA Tidiane, Médecin Légiste, garantissant un audit interne ;
+
+\item \textbf{Documentation Photographique} : Prise de photographies numériques horodatées du corps, des lésions, des instruments de torture trouvés (corde) ;
+
+\item \textbf{Conservation du Corps} : Le corps a été préservé en chambre mortuaire à température contrôlée permettant une autopsie de qualité ;
+
+\item \textbf{Absence de Perturbation} : Aucune indication d'accès non autorisé au corps avant autopsie ne ressort du dossier.
+
+\end{enumerate}
+
+\paragraph{Scènes de Crime}
+
+\begin{enumerate}
+
+\item \textbf{Brigade de Gendarmerie de Nkolkondi} : Lieu d'arrestation avec témoins potentiels (gendarmes du service) ;
+
+\item \textbf{Carrière d'EBOGO} : Lieu de torture initial, où ont été retrouvés résidus d'huile de palme, fibres de corde, traces de sang (prélèvement pour analyse ADN) ;
+
+\item \textbf{Lieu de Découverte (quartier SOA)} : Périmètre de sécurité établi, photographies panoramiques et détaillées, mesures de distances au lieux riverains pour établir la géolocalisation de découverte.
+
+\end{enumerate}
+
+\subsubsection{Certification de Conformité}
+
+L'expert judiciaire certifie que les preuves ont traversé l'ensemble de la chaîne sans compromise en produisant un procès-verbal de chaîne de custode affirmant :
+
+\begin{enumerate}
+
+\item Aucune altération documentée des preuves numériques ;
+
+\item Respect des protocoles de conservation des preuves physiques ;
+
+\item Chaîne ininterrompue de responsabilité tracée (qui a manipulé, quand, où, comment) ;
+
+\item Conformité avec les normes scientifiques et légales en vigueur.
+
+\end{enumerate}
+
+\subsection{Éléments Contextuels et Circonstanciels}
+
+\subsubsection{Contexte de l'Affaire}
+
+\paragraph{Antécédents des Inculpés}
+
+\begin{enumerate}
+
+\item \textbf{DANWE JUSTIN} : Lieutenant-Colonel, Directeur des Opérations à la DGRE, officier de gendarmerie depuis plus de deux décennies ;
+
+\item \textbf{EKO EKO LEOPOLD MAXIME} : Commissaire Divisionnaire, alors DGRE (supérieur hiérarchique de DANWE JUSTIN) ;
+
+\item \textbf{AMOUGOU BELINGA JEAN-PIERRE} : Journaliste du Groupe l'Anecdote, entrepreneur de média, tension connue avec MARTINEZ ZOGO ;
+
+\item \textbf{MARTINEZ ZOGO} : Décédé, journaliste d'investigation critiquant les autorités gouvernementales, y compris possiblement des personnalités liées au Groupe l'Anecdote ou aux structures de sécurité.
+
+\end{enumerate}
+
+\paragraph{Motif Probable}
+
+MARTINEZ ZOGO représentait une menace pour les intérêts de plusieurs puissants acteurs :
+
+\begin{enumerate}
+
+\item \textbf{Pour DANWE JUSTIN et EKO EKO} : En tant que journaliste critiquant les activités de la DGRE et révélant possiblement des opérations clandestines hors du cadre légal ;
+
+\item \textbf{Pour AMOUGOU BELINGA} : En tant que concurrent dans le paysage médiatique et source de discorde au sein du Groupe l'Anecdote ;
+
+\item \textbf{Pour les personnalités gouvernementales visées par les investigations de MARTINEZ ZOGO} : Pour faire taire l'enquêteur médiatique.
+
+\end{enumerate}
+
+\subsubsection{Modus Operandi}
+
+\paragraph{Caractérisation du Schéma Criminel}
+
+L'opération du 23 janvier 2023 suit un schéma identifiable :
+
+\begin{enumerate}
+
+\item \textbf{Phase 1 : Renseignement} (6-17 janvier 2023) : Filature systématique de la cible par TONGUE NANA, LAMFU JOHNSON et DAOUDA établissant localisation du domicile, lieu de travail, trajets réguliers, fréquentations.
+
+\item \textbf{Phase 2 : Première Opération de Torture} (18 janvier 2023 - avant 22h) : Arrestation à Brigade de Gendarmerie de Nkolkondi, transport à carrière d'EBOGO, infliction de tortures (entaille à l'oreille, insertion de câble anal, coups de fouet, arrosage d'huile et farine), interrogatoire coercitif visant à faire « cesser de parler ».
+
+\item \textbf{Phase 3 : Opération Finale} (18-20 janvier 2023) : Retour de TONGUE NANA, DAOUDA et LAMFU JOHNSON à EBOGO, strangulation de la victime déjà gravement blessée, abandon du corps.
+
+\item \textbf{Phase 4 : Dissimulation} (20-23 janvier 2023) : Absence de rapport officiel, corps dissimulé en carrière éloignée, communication minimale sur les canaux officiels, contrats de silence implicites entre auteurs.
+
+\end{enumerate}
+
+\subsubsection{Mobiles}
+
+\paragraph{Mobiles Établis ou Probables}
+
+\begin{enumerate}
+
+\item \textbf{Réduction au Silence} : MARTINEZ ZOGO enquêtait sur les autorités gouvernementales et structures de sécurité. Son élimination avait pour objet d'arrêter ses investigations médiatiques.
+
+\item \textbf{Vengeance} : Possibilité d'une vengeance personnelle d'autorités gouvernementales mentionnées négativement dans les reportages de MARTINEZ ZOGO.
+
+\item \textbf{Contrôle Institutionnel} : Pour la DGRE et ses personnalités, elimination d'une source critique visant à renforcer le contrôle sur le paysage médiatique et réduire l'exposition des opérations sensibles.
+
+\item \textbf{Rivalité Médiatique} : Pour le Groupe l'Anecdote (hypothèse affaiblie par les dénégations d'AMOUGOU BELINGA mais soutenue par ses visites à DANWE JUSTIN documentées à la vidéosurveillance).
+
+\end{enumerate}
+
+\subsubsection{Opportunité}
+
+\paragraph{Accès aux Moyens de Commission}
+
+\begin{enumerate}
+
+\item \textbf{Autorité Militaire} : Les inculpés militaires (DANWE JUSTIN, EBO'O CLEMENT, GODJE OUMAROU, etc.) disposaient d'autorité formelle pour commander des opérations militaires, facilitant l'organisation d'une opération sans surveillance immédiate.
+
+\item \textbf{Ressources DGRE} : Véhicule PRADO, armement (fusil VZ-58), personnel surentraîné et discipliné mis à disposition de la DGRE.
+
+\item \textbf{Infrastructure} : Accès à lieux réputés sécurisés (carrière d'EBOGO) où une opération de torture pouvait se dérouler sans crainte d'intervention extérieure.
+
+\item \textbf{Accès à Données Sensibles} : SAÏWANG YVES et HEUOJI GUY SERGE avaient légalement accès à données de localisation téléphonique dans le cadre de leurs fonctions à la Division de la Surveillance Electronique, accès exploité à fin criminelle.
+
+\item \textbf{Impunité Présumée} : Structure militaire avec juridiction militaire propre, possibilité de suppression de preuves ou de couverture institutionnelle.
+
+\end{enumerate}
+
+\subsection{Preuves Numériques Spécifiques}
+
+\subsubsection{Métadonnées de Communication}
+
+\paragraph{Listing d'Appels Téléphoniques}
+
+L'exploitation des listings d'appels révèle :
+
+\begin{enumerate}
+
+\item \textbf{Appel MARTINEZ ZOGO vers SAVOM MARTIN} : Quelques minutes avant l'attaque (heure précise mentionnée dans dossier mais non complètement transcrite ici). Cet appel suggère soit une demande de secours, soit une recherche de clarification auprès d'une personne impliquée ou informée.
+
+\item \textbf{Contacts répétés de BIDZONGO MBEDE} : BIDZONGO MBEDE avait appelé MARTINEZ ZOGO avec « insistance », établissant un lien de communication précédent immédiatement l'enlèvement.
+
+\item \textbf{Appels de DANWE JUSTIN vers AMOUGOU BELINGA} : Suggérés par les visites documentées à la vidéosurveillance, ces appels n'apparaissent pas en détail dans l'ordonnance mais sont infailliblement présents dans les dossiers de télécommunication.
+
+\end{enumerate}
+
+\subsubsection{Données de Localisation Cellulaire}
+
+Les données de localisation cellulaire constituent la preuve numérique centrale :
+
+\paragraph{Triangulation des Positions}
+
+Les tours de transmission cellulaire, croisées avec les registres d'opérateurs téléphoniques, permettent de trianguler les positions avec précision variant selon la densité de réseau (±100 m en milieu urbain, ±1 km en zone rurale). Pour Yaoundé et ses environs, la précision est suffisante pour établir présence dans des zones spécifiques (carrière d'EBOGO vs. Mess des Officiers).
+
+\paragraph{Chronologie de Mouvements}
+
+\begin{enumerate}
+
+\item \textbf{TONGUE NANA} : Filature entre 6-17 janvier depuis divers points de la ville vers domicile/lieu de travail de MARTINEZ ZOGO. Puis position à EBOGO à 23h01 le jour de l'opération fatale.
+
+\item \textbf{DAOUDA} : Positions concordantes avec TONGUE NANA au cours de la filature, puis arrivée à EBOGO à moment critique.
+
+\item \textbf{LAMFU JOHNSON} : Ostensiblement en repos (à l'hôpital aux côtés de son épouse accouchée) selon sa version. Données de localisation contredisant cette version : présence documentée à EBOGO au moment critique.
+
+\item \textbf{EBO'O, GODJE, BAKAÏWE, LENOIR} : Localisation initiale à carrière d'EBOGO, puis déplacement vers Mess des Officiers avant 23h (avant arrivée de TONGUE NANA à EBOGO).
+
+\end{enumerate}
+
+\subsubsection{Données de Localisation et Délai de Décès}
+
+La congruence entre données de localisation et rapport d'autopsie est remarquable :
+
+\begin{enumerate}
+
+\item \textbf{Rapport d'Autopsie} : Décès survenu 3-5 jours avant découverte le 23 janvier, soit le 18-20 janvier 2023 ;
+
+\item \textbf{Données de Localisation} : TONGUE NANA, DAOUDA (possiblement LAMFU JOHNSON) présents à EBOGO précisément les 18-20 janvier ;
+
+\item \textbf{Concordance} : Cette congruence entre deux sources indépendantes (médicale + technique de géolocalisation) établit une certitude quasi-absolue quant à l'identification des auteurs de la phase finale.
+
+\end{enumerate}
+
+\subsection{Absences de Preuve et Contre-Preuves}
+
+L'expert judiciaire doit aussi documenter honnêtement les limitations et éléments favorables aux inculpés.
+
+\subsubsection{Éléments Manquants}
+
+\begin{enumerate}
+
+\item \textbf{Enregistrement Audio/Vidéo de Torture} : Bien que la carrière d'EBOGO soit isolée, il n'existe apparemment pas d'enregistrement direct (vidéo surveillance, enregistreur de poches) de l'infliction des sévices. Les preuves restent circonstancielles ou basées sur admissions volontaires.
+
+\item \textbf{Ordres Écrits} : Les instructions de DANWE JUSTIN ont vraisemblablement été données oralement (selon les dépositions). L'absence d'ordres écrits, bien que reconnaissable en contexte militaire, introduit une ambigüité sur la chaîne de commandement exacte.
+
+\item \textbf{Autopsie de Complétude} : Le rapport d'autopsie du Docteur EKANI établit le mode (strangulation) et l'intervalle (3-5 jours), mais ne documente pas toutes les blessures anales et autres traces de torture suggérées par les admissions. Augmentation de la certitude par examen toxicologique complet (absence/présence de substances psychoactives) ?
+
+\item \textbf{Alibi de LAMFU JOHNSON} : Documenté non pas par ordres officiels ou registres de congé, mais par présence à hôpital. Absence de documentation officielle du congé ; autres militaires n'ont pas confirmé son absence de la préparation.
+
+\end{enumerate}
+
+\subsubsection{Contre-Preuves Identifiées}
+
+\begin{enumerate}
+
+\item \textbf{Dénégation d'EKO EKO} : Production d'une note de service n000646/DGRE/CAB du 12 novembre 2021 imposant une supervision du Conseiller Technique, suggérant que DANWE JUSTIN avait transgression de procédure en n'obtenant pas cette supervision. Cette contre-preuve s'avère cependant insuffisante pour exonérer EKO EKO compte tenu du caractère non-exécutoire de la note de 2021 après presque deux ans et du témoignage de ELONG LOBE JAMES établissant que la salle de crise n'abrite que des missions dirigeantes.
+
+\item \textbf{Versions Contradictoires de DANWE JUSTIN} : Les multiples versions fournies par DANWE (initiative personnelle vs. ordre hiérarchique vs. commande d'AMOUGOU) introduisent une ambigüité sur le vrai commanditaire. Cette incohérence, bien qu'elle jette doute sur la versacité de DANWE, n'annule pas sa culpabilité mais fragmente la chaîne de commandement remontant vers les échelons supérieurs.
+
+\item \textbf{Absence d'Admission de Culpabilité de Commanditaires} : EKO EKO et AMOUGOU BELINGA nient catégoriquement. Contrairement aux tortionnaires de première phase (GODJE OUMAROU en admission volontaire complète), les commanditaires présumés n'ont jamais confessé. Cette absence d'admission requiert une chaîne probante circonstanciellement très solide, que les données de localisation et les témoignages de tiers (ELONG LOBE, SAÏWANG YVES, vidéosurveillance) fournissent.
+
+\end{enumerate}
+
+\subsubsection{Limites Méthodologiques}
+
+\begin{enumerate}
+
+\item \textbf{Précision de Localisation Cellulaire} : Bien que généralement fiables à ±100 m en zone urbaine, les positions de localisation cellulaire ne permettent pas d'identifier individuellement la personne détenant le téléphone. Théoriquement, LAMFU JOHNSON pourrait ne pas être l'utilisateur du téléphone durant l'opération à EBOGO, bien que cette hypothèse soit hautement improbable.
+
+\item \textbf{Absence de Reconnaissance du Procédé Scientifique} : L'ordonnance de renvoi ne mentionne pas de reconnaissance explicite par les inculpés du procédé scientifique de localisation cellulaire. Un inculpé pourrait en appel contester la fiabilité de cette preuve, nécessitant témoignage d'expert en radiocommunications.
+
+\item \textbf{Chaîne de Custode Incomplète pour Certaines Pièces} : Bien que les données de localisation présentent intégrité algorithmique, la transmis à travers structure hiérarchique militaire introduit possibilité théorique d'altération administrative (bien qu'improbable).
+
+\end{enumerate}
+
+\section{Articulation Juridique de l'Ordonnance d'Inculpation}
+
+Sur la base de cette architecture probante, le magistrat d'instruction (Colonel-Magistrat JUGEA) a rendu une ordonnance d'inculpation le 29 février 2024 ayant structure suivante :
+
+\subsection{Structure Formelle de l'Ordonnance}
+
+L'ordonnance débute par les protocoles juridiques requis : date, identité de la cour (Tribunal Militaire de Yaoundé), identité du magistrat instructeur (Colonel-Magistrat JUGEA) assisté de greffières (Adjudant-Chef JUGEADJOINT1, Adjudant JUGEADJOINT2). Elle énumère les fondements légaux : articles 256+ Code de Procédure Pénale, articles 8 et 13 Loi Code de Justice Militaire du 12 juillet 2017.
+
+L'ordonnance rappelle également les actes procéduraux préalables : réquisitoire d'instance, ordonnances antérieures de soit-communiqué, réquisitoire définitif, tous horodatés et numérotés permettant traçabilité dans le dossier.
+
+\subsection{Énumération des Inculpés et Responsabilités Spécifiques}
+
+Pour chaque inculpé (dix-sept au total), l'ordonnance énumère ses responsabilités spécifiques :
+
+\subsubsection{EBO'O Clément, GODJE Oumarou, BAKAIWE Sylvain et LENOIR DAWA}
+
+\textbf{Infractions :} Violation de consigne (art. 40 Code Justice Militaire), coaction d'arrestation et séquestration (art. 291 Code Pénal), coaction de torture (art. 2775 Code Pénal).
+
+\textbf{Responsabilité spécifique :} Ces quatre inculpés constituent le noyau dur du commando de première phase. EBO'O CLEMENT, en admission volontaire explicite, a reconnu l'ensemble des sévices. GODJE OUMAROU a « aisément reconnu les faits ». BAKAÏWE SYLVAIN a reconnu « la neutralisation physique, le ligotage et la flagellation ». LENOIR DAWA a nié initialement puis s'est contredit lors de la confrontation, ses collègues l'identifiant comme auteur des coups et de l'application du teaser.
+
+\subsubsection{NZOCKMENPING Martial}
+
+\textbf{Infractions :} Violation de consigne (art. 40), arrestation et séquestration (art. 291), complicité de torture (art. 97 et 2775).
+
+\textbf{Responsabilité spécifique :} Bien qu'initialement les faits lui étaient qualifiés d'omission de porter secours, sa présence armée à l'entrée de la carrière d'EBOGO constitue un acte positif de complicité (sécurisation du site de torture) plutôt qu'une passivité. Requalification appropriée.
+
+\subsubsection{TONGUE NANA Stéphane, DAOUDA et LAMFU Johnson NGAM}
+
+\textbf{Infractions :} Coaction d'assassinat, complicité d'assassinat, arrestation et séquestration, complicité de torture, violation de consignes.
+
+\textbf{Responsabilité spécifique :} Ces trois inculpés constituent le commando de deuxième phase. Bien qu'ils nient les faits d'assassinat, les données de localisation téléphonique les placent à EBOGO au moment critique (18-20 janvier, moment correspondant au délai de décès médico-légal de 3-5 jours). Leur participation à la filature antérieure (6-17 janvier) les rend complices de la préparation. Leur arrivée à EBOGO après le départ du premier commando établit que c'est eux qui ont achevé la victime par strangulation.
+
+\subsubsection{EKO EKO Maxime Léopold}
+
+\textbf{Infractions :} Complicité de torture.
+
+\textbf{Responsabilité spécifique :} Bien qu'EKO EKO invoque une note de service de 2021 plaçant les opérations sous supervision du Conseiller Technique, le témoignage d'ELONG LOBE JAMES établit que la salle de crise (où le briefing s'est déroulé) n'abrite que des missions ordonnées par le DGRE lui-même. Les ressources DGRE (véhicule PRADO, personnel, armement) ne pouvaient être déployées sans l'accord du DGRE en tant que premier responsable. Même si EKO EKO n'avait pas expressément ordonné l'assassinat, l'absence de mesure pour empêcher l'opération dont il ne pouvait ignorer la préparation établit sa responsabilité hiérarchique.
+
+\subsubsection{AMOUGOU BELINGA Jean-Pierre}
+
+\textbf{Infractions :} Complicité de torture.
+
+\textbf{Responsabilité spécifique :} DANWE JUSTIN a déclaré explicitement lors de confrontation (10 février 2023) et devant le Juge d'instruction que AMOUGOU BELINGA lui avait « confié la mission de faire taire MARTINEZ ZOGO » avec remise de 2.000.000 de francs CFA. Bien qu'AMOUGOU dénège formellement, les images de vidéosurveillance montrent DANWE JUSTIN au bureau d'AMOUGOU le 16 janvier (pré-opération) et 18 janvier (post-opération), établissant une relation de commanditaire. Cette preuve circonstanciellement très solide justifie inculpation pour complicité.
+
+\subsubsection{SAÏWANG Yves et HEUOJI Guy Serge}
+
+\textbf{Infractions :} Complicité de torture.
+
+\textbf{Responsabilité spécifique :} Ces deux policiers de la Division de la Surveillance Electronique ont reconnu sans équivoque avoir fourni à DANWE JUSTIN des données de localisation de MARTINEZ ZOGO (fiches de géolocalisation et techniques) sans autorisation de leur hiérarchie directe, contre compensation financière (20.000 et 15.000 francs CFA respectivement). Cette fourniture d'informations critiques a directement facilité la localisation et l'enlèvement de la cible. Ils se rendent thus complices au sens de l'article 97 Code Pénal.
+
+\subsubsection{ENGWELE-NGWELE Etienne Jacques}
+
+\textbf{Infractions :} Complicité de torture.
+
+\textbf{Responsabilité spécifique :} Identifié comme fournisseur du véhicule PRADO utilisé pour la mission. DANWE JUSTIN a explicitement mentionné cette fourniture. La mise à disposition d'un moyen de transport essentiel à la commission de l'enlèvement et de l'assassinat établit la complicité.
+
+\subsubsection{SAVOM Martin}
+
+\textbf{Infractions :} Complicité d'assassinat, complicité de torture.
+
+\textbf{Responsabilité spécifique :} SAVOM Martin est identifié comme coordinateur de la deuxième opération (strangulation finale) arrivé « précipitamment de Bibey la veille ». Bien que le détail de son implication reste limité dans l'ordonnance transcrite, son rôle de coordination de l'opération fatale établit sa complicité d'assassinat.
+
+\subsubsection{BIDZONGO MBEDE Albert alias « Arthur ESSOMBA »}
+
+\textbf{Infractions :} Complicité de torture, usurpation de titre, usurpation de fonctions.
+
+\textbf{Responsabilité spécifique :} BIDZONGO s'est présenté à MARTINEZ ZOGO comme « Capitaine ARTHUR ESSOMBA de la DGRE ». Cette usurpation d'identité militaire a permis de leurrer la victime quelques heures avant l'enlèvement. Il a reconcontré MARTINEZ ZOGO prétendument pour remettre « documents compromettants », en réalité pour le mettre en contact avec les auteurs de l'enlèvement. L'usurpation de titre (pas d'officier portant ce nom dans les registres DGRE) et l'aide à l'enlèvement par stratagème établissent sa culpabilité plurielle.
+
+\subsubsection{DANWE Justin}
+
+\textbf{Infractions :} Coaction d'assassinat, complicité d'arrestation et séquestration, complicité de torture, violation de consigne.
+
+\textbf{Responsabilité spécifique :} DANWE JUSTIN est l'architecte principal de l'opération. Il a organisé l'opération, choisi les hommes, rassemblé les moyens, dirigé la filature et coordonné le déploiement du commando. Il a donné les instructions explicites de torture (« fouetter, couper une oreille ou casser une cheville »). Il a reçu possiblement un financement externe (les 2.000.000 de francs CFA d'AMOUGOU). Sa responsabilité déborde le cadre du commandement militaire régulier pour entrer dans le crime organisé. Bien que DANWE invoque agir « dans le cadre du service », l'ensemble des preuves démontre une opération conduite hors du cadre légal régulier, sur commande ou en collaboration avec civils (AMOUGOU BELINGA).
+
+\subsubsection{BIDJANG OBA'A BIKORO Bruno François}
+
+\textbf{Infractions :} Complicité de torture et d'arrestation et séquestration.
+
+\textbf{Responsabilité spécifique :} Bien que BIDJANG dénège toute association, ses paroles rapportées à Paul Daisy BIYA (« on sera sans pitié pour lui ») surviennent quelques jours avant l'enlèvement. Bien que cette expression soit susceptible d'interprétation (simple expression rhétorique vs. intention d'agression), combinée au contexte de tensions avec MARTINEZ ZOGO au sein du Groupe l'Anecdote, elle suggère une préméditation partagée. L'ordonnance requalifie ses actes en complicité plutôt qu'auteur moral direct, reflétant l'absence de preuve d'implication opérationnelle directe.
+
+\subsection{Énumération des Infractions Reprochées}
+
+L'ordonnance cite précisément les articles du Code Pénal et Code de Justice Militaire applicables :
+
+\begin{itemize}
+
+\item \textbf{Article 276(1-a) Code Pénal} : Assassinat (intention de donner la mort, exécution de cette intention) ;
+
+\item \textbf{Article 2775 Code Pénal} : Torture (infliction intentionnelle de douleur pour obtenir confession ou punition) ;
+
+\item \textbf{Article 291 Code Pénal} : Arrestation et séquestration arbitraires ;
+
+\item \textbf{Article 97 Code Pénal} : Complicité (aide ou encouragement à commission d'infraction) ;
+
+\item \textbf{Article 277-3(1) Code Pénal} : Usurpation de titre et de fonctions ;
+
+\item \textbf{Article 40 Code de Justice Militaire} : Violation de consignes militaires ;
+
+\item \textbf{Article 219 Code Pénal} : Omission de porter secours (aggravée de circonstances qu'elle constitue finalement complicité plutôt qu'omission simple).
+
+\end{itemize}
+
+\subsection{Fondements Légaux des Poursuites}
+
+L'ordonnance énonce les fondements légaux permettant au magistrat d'instruire contre les inculpés en jurisdiction militaire. La présence de militaires (neuf inculpés au minimum) comme auteurs matériels justifie la saisine du Tribunal Militaire de Yaoundé. L'implication de civils (AMOUGOU BELINGA journaliste, BIDJANG OBA'A BIKORO journaliste, ENGWELE-NGWELE opérateur économique) pose une question de compétence résolvable par connexité : tous les inculpés agissant en relation à une opération unique dirigée par militaires.
+
+\subsection{Modalités de Détention ou Libération}
+
+L'ordonnance spécifie pour chaque inculpé le statut de détention :
+
+\begin{enumerate}
+
+\item \textbf{Seize inculpés} : « Tous détenus » selon la formulation de l'ordonnance ;
+
+\item \textbf{BIDJANG OBA'A BIKORO Bruno François} : « Libre » --- possiblement du fait de son implication moins directe (complicité d'assassinat au lieu d'auteur matériel) et/ou de sa présence non-continue au siège de l'opération.
+
+\end{enumerate}
+
+\section{Conclusion}
+
+\vspace{0.5cm}
+
+\addcontentsline{toc}{section}{Conclusion}
+
+L'expertise judiciaire moderne, intégrant données numériques, analyses médico-légales, interviews structurées et circonstances probantes, constitue l'armature sur laquelle reposent les ordonnances d'inculpation contemporaines. L'affaire du 23 janvier 2023 illustre la puissance de cette convergence probante : les données de localisation téléphonique, triviales pris isolément, deviennent concluantes lorsqu'elles corroborent un rapport d'autopsie précis et des admissions volontaires partielles.
+
+Le magistrat instructeur ne se contente pas d'accumuler des preuves. Il ordonne une harmonie logique entre elles, établissant une narration juridique cohérente et défendable en appel. L'ordonnance de renvoi du 29 février 2024 présente une telle architecture : chaîne de responsabilité identifiable, infractions précisément qualifiées, preuves convergeant depuis sources multiples, limites méthodologiques honnêtement documentées.
+
+L'expert judiciaire, par son rapport complet et sa structuration des éléments de preuve, permet au magistrat de franchir le seuil critique : doute raisonnable résolu en faveur de charges suffisantes permettant renvoi à jugement. Cette responsabilité exige rigueur scientifique, impartialité, documentation précise, et acceptation transparente des limitations méthodologiques.
+
+Le Tribunal Militaire de Yaoundé, saisi de ce dossier, aura pour responsabilité ultime de confirmer ou infirmer ces conclusions d'inculpation et de rendre justice aux justiciables, victimes comme inculpés, selon les règles du procès équitable et de la présomption d'innocence.
+
+\end{document}
